@@ -1,0 +1,69 @@
+.header {
+    height: 42px;
+    width: 100%;
+    @include flex-item(initial,space-between,center);
+    position: fixed;
+    z-index: 1;
+    border-bottom: 1px solid #29487D;
+    background-color: #4267B2;
+    color: white;
+}
+.header-center {
+    width: 1020px;
+    margin: 0 auto;
+    @include flex-item(initial,space-between,center);
+}
+
+.search-bar > input {
+    width: 400px;
+    height: 22px;
+    padding: 8px;
+}
+
+.fa-facebook-square {
+    font-size: 25px;
+    margin-right: 7px;
+}
+
+.search-btn {
+    @include button(3px 15px);
+}
+
+.header-right>a {
+    font-weight: 700;
+    font-size: 12px;
+    padding: 4px 10px;
+    &:hover {
+        background-color: #3B5DA0;
+    }
+    &:nth-child(2) {
+        border-left: $border-header-blue;
+        border-right: $border-header-blue;
+    }  
+    
+}
+
+.header-icons {
+    color: #1A2946;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.header-icons li {
+    padding: 5px;
+    &:hover {
+        color: black;
+    }
+    &:nth-child(4)::before,
+    &:first-child::before {
+        content: "|";
+        color: #3B5CA0;
+        font-size: 24px;
+        margin-right: 8px;
+    }
+}
+
+.userpic {
+    margin-right: 8px;
+    @include publisher-pic(25px,25px);
+}

@@ -1,0 +1,61 @@
+.navbar {
+    width: 150px;
+    grid-column: 1/2;
+    z-index: 1;
+    font-size: 12px;
+}
+
+.navbar-item {
+    grid-template-columns: 20% 80%;
+    display: grid;
+    align-items: center;
+    padding: 3px;
+    &:hover {
+        background-color: #F6F7F9;
+        border: 1px solid #DDDFE2;
+        margin: -1px;
+    }
+}
+
+.navbar-icon {
+    width: 23px;
+    height: 23px;
+    grid-column: 1/2;
+}
+
+.navbar-text {
+    grid-column: 2/3;
+    display: inline-block;
+    overflow: hidden;            /* To truncate string use theese 3 prop*/
+    text-overflow: ellipsis;     
+    white-space: nowrap;         
+}
+
+.navbar-links {
+    margin-top: 15px;
+}
+.create a {
+    &::after {
+        content: '\00B7';
+        padding-left: 3px;
+    }
+    &:first-of-type {
+        margin-left: 5px;
+    }
+    
+}
+
+
+
+.see-more {
+    margin: 12px 4px;
+    padding: 3px;
+    font-size: 13px;
+    color: #365899;
+    & .fa-caret-down {
+        color: #90949C;
+    }
+    & a {
+        margin-left: 5px;
+    }
+}

@@ -1,0 +1,95 @@
+.template {
+    background-color: white;
+    margin-bottom: 12px;
+    border: $border;
+    border-radius: 5px;
+    color: #5F636A;
+}
+
+.user-input {
+    justify-content: space-between;
+}
+.user-input-links-top {
+    background-color: #F6F7F9;
+    border-bottom: $border;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    @include flex-item(initial, initial, center);
+
+    & a {
+        padding: 9px 10px;
+    }
+    & .album {
+        border-left: $border;
+        border-right: $border
+    }
+    & .fas {
+        margin-right: 4px;
+    }
+}
+
+.album span,
+.video span {
+    color: #365899;
+}
+.arrow_box {
+	position: relative;
+    background: #FFFFFF;
+    top: 10px;
+    &::after,
+    &::before {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    &::after {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: #FFFFFF;
+        border-width: 8px;
+        margin-left: -2px;
+    }
+    &::before {
+        border-color: rgba(221, 223, 226, 0);
+        border-bottom-color: #DDDFE2;
+        border-width: 9px;
+        margin-left: -3px;
+    }
+}
+
+.user-input-text {
+    display: flex;
+    & input {
+        width: 100%;
+    }
+    & img {
+        margin: 10px;
+        @include publisher-pic(45px,45px); 
+    }
+    
+}
+
+.user-input-links-bottom {
+    border-top: $border;
+    padding: 3px;
+    margin: auto 10px;
+    & a {
+        padding: 8px 16px;
+        background-color: #F6F7F9;
+        margin: 5px;
+        border-radius: 14px;
+    }
+    & .fa-image {
+        color: #94CD54;
+    }
+    & .fa-smile {
+        color: #F7C43A;
+    }
+    & .fa-ellipsis-h {
+        color: #A6ABB4; 
+    }
+}

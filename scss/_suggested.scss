@@ -1,0 +1,56 @@
+.suggested-body {
+    border: $border;
+    margin: 10px;
+}
+.suggested-header,
+.ads-header {
+    @include flex-item(initial, space-between, center);
+    padding: 8px 12px 0 12px;
+}
+.sug-page-rating  {
+    padding: 8px;
+    border-bottom: $border;
+    color: #4267B2;
+}
+.fa-star {
+    font-size: 10px;
+}
+.sug-page-info {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-gap: 5px;
+    padding: 8px;
+}
+
+.suggested  {
+    .like {
+        @include flex-item(initial, center, initial);
+        padding: 10px;
+    }
+    img {
+        max-width: 100%;
+        border-top: $border;
+        border-bottom: $border;
+    }
+}
+.ads {
+    img {
+        max-width: 100%;
+        border-top: $border;
+        border-bottom: $border;
+    }
+    span {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    h4 {
+        padding: 5px;
+    }
+    p {
+        font-size: 13px;
+    }
+}
+
+
+   
+

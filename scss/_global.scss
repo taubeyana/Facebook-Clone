@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+a {
+    color: inherit; 
+    text-decoration: inherit;
+}
+input {
+    border: none;
+    outline: none;
+}
+
+body {
+    background-color: $body-hover-color-grey;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: $main-font-color;    
+}
+
+.grey-hover:hover {
+    background-color: $body-hover-color-grey;
+    cursor: pointer;
+}
+
+.color-blue {
+    color: $links-color-blue;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.flex-item {
+    display: flex;
+    align-items: center;
+}
+.container {
+    max-width: 1020px;
+    top: 52px;
+    position: relative;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 150px 53% 30%;
+    grid-gap: 10px;
+}
+
+.newsfeed {
+    grid-column: 2/3;
+}
+.grid-left {
+    position: fixed;
+}
+.right {
+    grid-column: 3/4;
+}
+
+.heb {
+    direction: rtl;
+}
+
+.headers {
+    @include headers();
+}
+

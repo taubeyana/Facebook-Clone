@@ -1,0 +1,712 @@
+/* line 1, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* line 7, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+ul {
+  list-style: none;
+}
+
+/* line 10, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* line 14, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+input {
+  border: none;
+  outline: none;
+}
+
+/* line 19, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+body {
+  background-color: #E9EBEE;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #5F636A;
+}
+
+/* line 26, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.grey-hover:hover {
+  background-color: #E9EBEE;
+  cursor: pointer;
+}
+
+/* line 31, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.color-blue {
+  color: #365899;
+  cursor: pointer;
+}
+
+/* line 34, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.color-blue:hover {
+  text-decoration: underline;
+}
+
+/* line 39, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.flex-item {
+  display: flex;
+  align-items: center;
+}
+
+/* line 43, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.container {
+  max-width: 1020px;
+  top: 52px;
+  position: relative;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 150px 53% 30%;
+  grid-gap: 10px;
+}
+
+/* line 53, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.newsfeed {
+  grid-column: 2/3;
+}
+
+/* line 56, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.grid-left {
+  position: fixed;
+}
+
+/* line 59, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.right {
+  grid-column: 3/4;
+}
+
+/* line 63, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.heb {
+  direction: rtl;
+}
+
+/* line 67, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_global.scss */
+.headers {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+/* line 1, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header {
+  height: 42px;
+  width: 100%;
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  border-bottom: 1px solid #29487D;
+  background-color: #4267B2;
+  color: white;
+}
+
+/* line 11, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-center {
+  width: 1020px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 17, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.search-bar > input {
+  width: 400px;
+  height: 22px;
+  padding: 8px;
+}
+
+/* line 23, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.fa-facebook-square {
+  font-size: 25px;
+  margin-right: 7px;
+}
+
+/* line 28, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.search-btn {
+  border: 0;
+  padding: 0;
+  outline: none;
+  font-size: 14px;
+  background-color: #F6F7F9;
+  color: #4E5665;
+  padding: 3px 15px;
+  cursor: pointer;
+}
+
+/* line 32, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-right > a {
+  font-weight: 700;
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+/* line 36, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-right > a:hover {
+  background-color: #3B5DA0;
+}
+
+/* line 39, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-right > a:nth-child(2) {
+  border-left: 1px solid #3B5CA0;
+  border-right: 1px solid #3B5CA0;
+}
+
+/* line 46, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-icons {
+  color: #1A2946;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* line 52, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-icons li {
+  padding: 5px;
+}
+
+/* line 54, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-icons li:hover {
+  color: black;
+}
+
+/* line 57, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.header-icons li:nth-child(4)::before, .header-icons li:first-child::before {
+  content: "|";
+  color: #3B5CA0;
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+/* line 66, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_header.scss */
+.userpic {
+  margin-right: 8px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid #D9D9D9;
+}
+
+/* line 1, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.navbar {
+  width: 150px;
+  grid-column: 1/2;
+  z-index: 1;
+  font-size: 12px;
+}
+
+/* line 8, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.navbar-item {
+  grid-template-columns: 20% 80%;
+  display: grid;
+  align-items: center;
+  padding: 3px;
+}
+
+/* line 13, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.navbar-item:hover {
+  background-color: #F6F7F9;
+  border: 1px solid #DDDFE2;
+  margin: -1px;
+}
+
+/* line 20, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.navbar-icon {
+  width: 23px;
+  height: 23px;
+  grid-column: 1/2;
+}
+
+/* line 26, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.navbar-text {
+  grid-column: 2/3;
+  display: inline-block;
+  overflow: hidden;
+  /* To truncate string use theese 3 prop*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 34, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.navbar-links {
+  margin-top: 15px;
+}
+
+/* line 38, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.create a::after {
+  content: '\00B7';
+  padding-left: 3px;
+}
+
+/* line 42, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.create a:first-of-type {
+  margin-left: 5px;
+}
+
+/* line 50, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.see-more {
+  margin: 12px 4px;
+  padding: 3px;
+  font-size: 13px;
+  color: #365899;
+}
+
+/* line 55, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.see-more .fa-caret-down {
+  color: #90949C;
+}
+
+/* line 58, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_navbar.scss */
+.see-more a {
+  margin-left: 5px;
+}
+
+/* line 1, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.stories-header {
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px 0 10px;
+}
+
+/* line 5, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.story-info {
+  padding: 10px;
+}
+
+/* line 8, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.fa-plus {
+  width: 50px;
+  height: 50px;
+  padding: 18px;
+  border: 1px solid #D9D9D9;
+  border-radius: 50%;
+  background-color: #F5F6F7;
+  color: #187BFB;
+}
+
+/* line 17, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.stories-info {
+  display: flex;
+  flex-direction: initial;
+  justify-content: initial;
+  align-items: center;
+  padding: 0px 12px 12px 12px;
+}
+
+/* line 22, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.descr-text {
+  font-size: 13px;
+  color: #AFB2B8;
+}
+
+/* line 27, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.lang {
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+/* line 30, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.lang .fa-plus {
+  color: inherit;
+  border-radius: 10px;
+  padding: 11px;
+  width: 35px;
+  height: 35px;
+}
+
+/* line 37, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.lang span {
+  line-height: 1.4;
+}
+
+/* line 39, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.lang span::after {
+  content: '\00B7';
+  padding: 2px;
+}
+
+/* line 47, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_stories.scss */
+.lang span:last-of-type::after,
+.create a:last-of-type::after {
+  content: none;
+}
+
+/* line 1, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.suggested-body {
+  border: 1px solid #D9D9D9;
+  margin: 10px;
+}
+
+/* line 5, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.suggested-header,
+.ads-header {
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px 0 12px;
+}
+
+/* line 10, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.sug-page-rating {
+  padding: 8px;
+  border-bottom: 1px solid #D9D9D9;
+  color: #4267B2;
+}
+
+/* line 15, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.fa-star {
+  font-size: 10px;
+}
+
+/* line 18, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.sug-page-info {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-gap: 5px;
+  padding: 8px;
+}
+
+/* line 26, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.suggested .like {
+  display: flex;
+  flex-direction: initial;
+  justify-content: center;
+  align-items: initial;
+  padding: 10px;
+}
+
+/* line 30, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.suggested img {
+  max-width: 100%;
+  border-top: 1px solid #D9D9D9;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+/* line 37, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.ads img {
+  max-width: 100%;
+  border-top: 1px solid #D9D9D9;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+/* line 42, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.ads span {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* line 46, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.ads h4 {
+  padding: 5px;
+}
+
+/* line 49, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_suggested.scss */
+.ads p {
+  font-size: 13px;
+}
+
+/* line 1, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.template {
+  background-color: white;
+  margin-bottom: 12px;
+  border: 1px solid #D9D9D9;
+  border-radius: 5px;
+  color: #5F636A;
+}
+
+/* line 9, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input {
+  justify-content: space-between;
+}
+
+/* line 12, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-top {
+  background-color: #F6F7F9;
+  border-bottom: 1px solid #D9D9D9;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  flex-direction: initial;
+  justify-content: initial;
+  align-items: center;
+}
+
+/* line 19, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-top a {
+  padding: 9px 10px;
+}
+
+/* line 22, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-top .album {
+  border-left: 1px solid #D9D9D9;
+  border-right: 1px solid #D9D9D9;
+}
+
+/* line 26, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-top .fas {
+  margin-right: 4px;
+}
+
+/* line 31, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.album span,
+.video span {
+  color: #365899;
+}
+
+/* line 35, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.arrow_box {
+  position: relative;
+  background: #FFFFFF;
+  top: 10px;
+}
+
+/* line 39, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.arrow_box::after, .arrow_box::before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* line 50, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.arrow_box::after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #FFFFFF;
+  border-width: 8px;
+  margin-left: -2px;
+}
+
+/* line 56, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.arrow_box::before {
+  border-color: rgba(221, 223, 226, 0);
+  border-bottom-color: #DDDFE2;
+  border-width: 9px;
+  margin-left: -3px;
+}
+
+/* line 64, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-text {
+  display: flex;
+}
+
+/* line 66, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-text input {
+  width: 100%;
+}
+
+/* line 69, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-text img {
+  margin: 10px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #D9D9D9;
+}
+
+/* line 76, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-bottom {
+  border-top: 1px solid #D9D9D9;
+  padding: 3px;
+  margin: auto 10px;
+}
+
+/* line 80, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-bottom a {
+  padding: 8px 16px;
+  background-color: #F6F7F9;
+  margin: 5px;
+  border-radius: 14px;
+}
+
+/* line 86, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-bottom .fa-image {
+  color: #94CD54;
+}
+
+/* line 89, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-bottom .fa-smile {
+  color: #F7C43A;
+}
+
+/* line 92, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_userInput.scss */
+.user-input-links-bottom .fa-ellipsis-h {
+  color: #A6ABB4;
+}
+
+/* line 1, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-header,
+.post-comments-body,
+.public-post-follow {
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-between;
+  align-items: initial;
+  padding: 15px;
+}
+
+/* line 7, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-type-icon::before {
+  content: '\00B7';
+  padding: 8px 5px 0 0;
+}
+
+/* line 11, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-date {
+  display: inline-block;
+  font-size: 12px;
+  padding: 3px 0;
+}
+
+/* line 17, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.publisher img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #D9D9D9;
+  border: 1px solid #D9D9D9;
+}
+
+/* line 21, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.publisher-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
+  padding: 6px 10px;
+}
+
+/* line 26, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.light-padded {
+  padding: 10px;
+}
+
+/* line 30, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.follow-btn {
+  border: 0;
+  padding: 0;
+  outline: none;
+  font-size: 14px;
+  background-color: #F6F7F9;
+  color: #4E5665;
+  padding: 5px 13px;
+  cursor: pointer;
+  border: 1px solid #D9D9D9;
+}
+
+/* line 33, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.follow-btn span {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* line 39, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-preview {
+  border: 1px solid #D9D9D9;
+  width: 95%;
+  margin: auto;
+  box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.75);
+}
+
+/* line 44, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-preview img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* line 48, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-preview video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* line 54, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-source {
+  direction: initial;
+  display: inherit;
+}
+
+/* line 58, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-likes .fa-thumbs-up {
+  color: #4679EB;
+}
+
+/* line 61, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-comments-bottom {
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  padding: 12px;
+  margin: auto 10px;
+  border-top: 1px solid #D9D9D9;
+}
+
+/* line 68, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.download {
+  position: absolute;
+  top: 11px;
+  left: 0;
+}
+
+/* line 72, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.download img {
+  height: 22px;
+  width: 22px;
+}
+
+/* line 76, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.private-post .post-title {
+  color: black;
+  font-size: 25px;
+}
+
+/* line 81, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-reactions {
+  border-top: 1px solid #D9D9D9;
+  justify-content: space-between;
+}
+
+/* line 84, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-reactions img {
+  width: 22px;
+  height: 22px;
+  margin-right: -4px;
+}
+
+/* line 89, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-reactions .reactions-num {
+  margin-left: 10px;
+}
+
+/* line 92, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.post-reactions .post-reactions-comments {
+  display: flex;
+  flex-direction: initial;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 97, C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook/scss/_post.scss */
+.publisher-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=../css/styles.map */

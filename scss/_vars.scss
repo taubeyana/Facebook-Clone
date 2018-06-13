@@ -1,0 +1,49 @@
+$main-font-color: #5F636A;
+$body-hover-color-grey: #E9EBEE;
+$border-color-grey: #D9D9D9;
+$descr-font-color-dark-grey: #AFB2B8;
+$links-color-blue: #365899;
+$border: 1px solid $border-color-grey;
+$border-header-blue: 1px solid #3B5CA0;
+$small-font-size: 12px; 
+$headers-font-size: 13px;
+$headers-font-weight: 600;
+$inner-padding: 13px;
+$direction-rtl: rtl;
+
+
+@mixin flex-item($flex-direction, $justify, $align) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin publisher-pic($width,$height) {
+    width: $width;
+    height: $height;
+    border-radius: 50%;
+    border: $border;
+}
+
+@mixin button($padding) {
+    border: 0;
+    padding: 0;
+    outline: none;
+    font-size: 14px;
+    background-color:  #F6F7F9;
+    color:  #4E5665;
+    padding: $padding;
+    cursor: pointer;
+}
+
+@mixin headers() {
+    font-size: $headers-font-size;
+    font-weight: $headers-font-weight;
+    padding: 5px;
+}
+@mixin publisher-name() {
+    font-size: 15px;
+    font-weight: $headers-font-weight;
+
+}

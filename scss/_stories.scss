@@ -1,0 +1,50 @@
+.stories-header {
+    @include flex-item(initial, space-between, center);
+    padding: 10px 10px 0 10px;
+}
+.story-info {
+    padding: 10px;
+}
+.fa-plus {
+    width: 50px;
+    height: 50px;
+    padding: 18px;
+    border: $border;
+    border-radius: 50%;
+    background-color: #F5F6F7;
+    color: #187BFB;
+}
+.stories-info {
+    @include flex-item(initial, initial, center);
+    padding: 0px 12px 12px 12px;
+}
+
+.descr-text  {
+    font-size: 13px;
+    color: $descr-font-color-dark-grey;
+}
+
+.lang {
+    @include flex-item(initial, space-between, center);
+    font-size: 13px;
+    & .fa-plus {
+        color: inherit;
+        border-radius: 10px;
+        padding: 11px;
+        width: 35px;
+        height: 35px;
+    }
+    & span {
+        line-height: 1.4;
+        &::after {
+            content: '\00B7';
+            padding: 2px;
+        }
+    }
+    
+}
+
+.lang span:last-of-type::after,
+.create a:last-of-type::after {
+    content: none;
+}
