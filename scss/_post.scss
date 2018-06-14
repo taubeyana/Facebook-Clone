@@ -6,7 +6,7 @@
 }
 .post-type-icon::before {
     content: '\00B7';
-    padding: 8px 5px 0 0;
+    padding: 8px 5px 0 4px;
 }
 .post-date {
     display: inline-block;
@@ -26,6 +26,32 @@
 .light-padded {
     padding: 10px;
 }
+.post-options {
+    position: relative;
+    // display: none;
+}
+.post-options-menu {
+    @include flex-item(column, initial, initial);
+    display: none;
+    width: 110px;
+    position:  absolute;
+    top: 15px;
+    right: 0px;
+    z-index: 1;
+    border:  1px solid grey;
+    background-color:  white;
+    box-shadow: 0 0 6px 0.3px gray;
+    & span {
+        padding: 5px;
+        color: black;
+        cursor: pointer;
+            &:hover {
+                color: white;
+                background-color: $links-color-blue;
+            }
+    }
+}
+
 
 .follow-btn {
     @include button(5px 13px);
@@ -96,4 +122,7 @@
 
 .publisher-name {
     @include publisher-name();
+}
+.post-header {
+    position: relative;
 }
