@@ -49,8 +49,8 @@ class Post {
                     <div class="edit-post">
                         <span> Edit Post </span>
                         <div class="edit-post-area" >
-                            <textarea type="text" value="dgfdfg"></textarea>
-                            <button>Save</button>
+                            <textarea type="text" value=""></textarea>
+                            <button class="save-btn btn">Save</button>
                         </div>
                     </div>
                     <div class="remove-post">

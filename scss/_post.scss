@@ -28,8 +28,6 @@
 }
 .post-options {
     position: relative;
-    // display: none;
-
 }
 
 .post-options-menu {
@@ -40,9 +38,9 @@
     top: 15px;
     right: 0px;
     z-index: 1;
-    border:  1px solid grey;
-    background-color:  white;
-    box-shadow: 0 0 6px 0.3px gray;
+    border: $border;
+    box-shadow: $box-shadow;
+
     & .bg {
         width: 500px;
         height: 120px;
@@ -61,11 +59,11 @@
         }
     }
     & .edit-post-area {
-        border: 1px solid;
+        border: $border;
         position: absolute;
         top: 0;
         right: 119px;
-        box-shadow: 0 0 6px 0.3px grey;
+        box-shadow: $box-shadow;
         padding: 8px;
         background-color: white;
         display: none;
@@ -78,9 +76,17 @@
     }
 }
 
-
-.follow-btn {
+.btn {
     @include button(5px 13px);
+    &.save-btn {
+        border: $border;
+    }
+    &.like {
+        margin: $centred;
+        @include button(10px, white);
+    }
+}
+.follow-btn {
     border: $border;
     span {
         font-weight: $headers-font-weight;
@@ -92,7 +98,7 @@
     border: $border;
     width: 95%;
     margin: auto;
-    box-shadow: 0px 1px 2px -2px rgba(0,0,0,0.75);
+    box-shadow: $box-shadow;
     img {
         max-width:100%;
         max-height:100%;

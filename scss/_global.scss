@@ -44,7 +44,7 @@ body {
     max-width: 1020px;
     top: 52px;
     position: relative;
-    margin: 0 auto;
+    margin: $centred;
     display: grid;
     grid-template-columns: 150px 53% 30%;
     grid-gap: 10px;

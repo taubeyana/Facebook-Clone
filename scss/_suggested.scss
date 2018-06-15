@@ -23,9 +23,8 @@
 }
 
 .suggested  {
-    .like {
+    & .like {
         @include flex-item(initial, center, initial);
-        padding: 10px;
     }
     img {
         max-width: 100%;

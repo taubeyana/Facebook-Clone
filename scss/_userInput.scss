@@ -79,11 +79,14 @@
     border-top: $border;
     padding: 3px;
     margin: auto 10px;
-    & a {
+    & .btn {
+        @include button(8px 16px);
         padding: 8px 16px;
-        background-color: #F6F7F9;
         margin: 5px;
         border-radius: 14px;
+        &:hover {
+            background-color: $body-hover-color-grey;
+        }
     }
     & .fa-image {
         color: #94CD54;
@@ -93,12 +96,5 @@
     }
     & .fa-ellipsis-h {
         color: #A6ABB4; 
-    }
-    & .postbtn {
-        @include button(8px 16px);
-        border-radius: 14px;
-        &:hover {
-            background-color: $body-hover-color-grey;
-        }
     }
 }

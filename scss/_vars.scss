@@ -10,6 +10,8 @@ $headers-font-size: 13px;
 $headers-font-weight: 600;
 $inner-padding: 13px;
 $direction-rtl: rtl;
+$centred: 0 auto;
+$box-shadow: 0px 1px 2px -2px rgba(0,0,0,0.75);
 
 
 @mixin flex-item($flex-direction, $justify, $align) {
@@ -26,12 +28,12 @@ $direction-rtl: rtl;
     border: $border;
 }
 
-@mixin button($padding) {
+@mixin button($padding, $bgcolor:#F6F7F9) {
     border: 0;
     padding: 0;
     outline: none;
     font-size: 14px;
-    background-color:  #F6F7F9;
+    background-color: $bgcolor;
     color:  #4E5665;
     padding: $padding;
     cursor: pointer;

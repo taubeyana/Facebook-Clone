@@ -10,7 +10,7 @@
 }
 .header-center {
     width: 1020px;
-    margin: 0 auto;
+    margin: $centred;
     @include flex-item(initial,space-between,center);
 }
 
