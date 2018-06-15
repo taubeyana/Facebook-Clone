@@ -63,8 +63,10 @@
 
 .user-input-text {
     display: flex;
-    & input {
+    & textarea {
         width: 100%;
+        padding-top: 25px;
+        height: inherit;
     }
     & img {
         margin: 10px;
@@ -91,5 +93,12 @@
     }
     & .fa-ellipsis-h {
         color: #A6ABB4; 
+    }
+    & .postbtn {
+        @include button(8px 16px);
+        border-radius: 14px;
+        &:hover {
+            background-color: $body-hover-color-grey;
+        }
     }
 }

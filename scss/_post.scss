@@ -12,7 +12,7 @@
     display: inline-block;
     font-size: 12px;
     padding: 3px 0;
-
+    
 }
 .publisher img {
     @include publisher-pic(45px,45px);
@@ -29,7 +29,9 @@
 .post-options {
     position: relative;
     // display: none;
+
 }
+
 .post-options-menu {
     @include flex-item(column, initial, initial);
     display: none;
@@ -41,14 +43,38 @@
     border:  1px solid grey;
     background-color:  white;
     box-shadow: 0 0 6px 0.3px gray;
-    & span {
+    & .bg {
+        width: 500px;
+        height: 120px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+    }
+    & .edit-post, .remove-post {
         padding: 5px;
         color: black;
         cursor: pointer;
-            &:hover {
-                color: white;
-                background-color: $links-color-blue;
-            }
+        &:hover {
+            color: white;
+            background-color: $links-color-blue;
+        }
+    }
+    & .edit-post-area {
+        border: 1px solid;
+        position: absolute;
+        top: 0;
+        right: 119px;
+        box-shadow: 0 0 6px 0.3px grey;
+        padding: 8px;
+        background-color: white;
+        display: none;
+        
+    }
+    & textarea {
+        width: 325px;
+        height: 80px;
+        overflow: auto;
     }
 }
 

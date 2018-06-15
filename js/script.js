@@ -15,8 +15,7 @@ class Feed {
     constructor(postEl) {
         this.postEl = postEl;
         this.user = new User('Yana', 'Taube',"img/userpic.jpg");
-        this.input = postEl.querySelector('.user-input-text input');
-        
+        this.input = postEl.querySelector('.user-input-text textarea');
         this.postbtn = postEl.querySelector('.postbtn');
         this.postsArea = postEl.querySelector('.posts-area');
         this.postbtn.addEventListener('click', () => this.createPost());
@@ -44,12 +43,21 @@ class Post {
                 </figcaption>
             </figure>
             <div class="post-options">
-				<i class="fas fa-ellipsis-h"></i>
-				<div class="post-options-menu">
-                    <span class="edit-post"> Edit Post </span>
-                    <span class="remove-post"> Remove Post </span>
-				</div>
-			</div>
+                <i class="fas fa-ellipsis-h"></i>
+                <div class="post-options-menu">
+                    <div class="bg"></div>
+                    <div class="edit-post">
+                        <span> Edit Post </span>
+                        <div class="edit-post-area" >
+                            <textarea type="text" value="dgfdfg"></textarea>
+                            <button>Save</button>
+                        </div>
+                    </div>
+                    <div class="remove-post">
+                        <span> Remove Post </span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="post-body1">
             <p class="post-title light-padded heb">
@@ -69,6 +77,11 @@ class Post {
     </div>`;
     this.removebtn = this.div.querySelector('.remove-post');
     this.removebtn.addEventListener('click', () => this.removePost());
+    this.editBtn = this.div.querySelector('.edit-post');
+    this.editBtn.addEventListener('click', () => this.editPost());
+    this.textarea = this.div.querySelector('.edit-post-area textarea');
+    this.textarea.innerText = this.userInput;
+    this.postBody = this.div.querySelector('.post-body1 .post-title');
     this.postOptions = this.div.querySelector('.post-options-menu');
     this.postOptions.addEventListener('mouseleave', () => this.postOptions.style.display = 'none')
     this.showPostOptions = this.div.querySelector('.fa-ellipsis-h');
@@ -78,7 +91,11 @@ class Post {
         this.div.parentNode.removeChild(this.div);
     }
     editPost() {
-
+        this.textarea.parentNode.style.display = 'block';
+        this.saveBtn = this.div.querySelector('.edit-post-area button');
+        this.saveBtn.addEventListener('click', () =>{
+            this.postBody.innerText = this.textarea.value;
+        });
     }
 }  
 
