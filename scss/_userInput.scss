@@ -18,6 +18,9 @@
 
     & a {
         padding: 9px 10px;
+        &:first-of-type {
+            position: relative;
+        }
     }
     & .album {
         border-left: $border;
@@ -32,33 +35,13 @@
 .video span {
     color: #365899;
 }
-.arrow_box {
-	position: relative;
-    background: #FFFFFF;
-    top: 10px;
-    &::after,
-    &::before {
-        bottom: 100%;
-        left: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-    }
-    &::after {
-        border-color: rgba(255, 255, 255, 0);
-        border-bottom-color: #FFFFFF;
-        border-width: 8px;
-        margin-left: -2px;
-    }
-    &::before {
-        border-color: rgba(221, 223, 226, 0);
-        border-bottom-color: #DDDFE2;
-        border-width: 9px;
-        margin-left: -3px;
-    }
+.triangle {
+    @include triangle(top,white,8px,8px);
+    @include position(absolute,unset,unset,-1px,56px);
+}
+.triangle-border {
+    @include triangle(top,$border-color-grey,9px,9px);
+    @include position(absolute,unset,unset,-1px,55px);
 }
 
 .user-input-text {

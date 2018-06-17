@@ -68,3 +68,19 @@ $centred: 0 auto;
     left: $left;
 }
 
+@mixin triangle($direction, $color, $big, $small) {
+    border: $small solid transparent;
+    border-#{$direction}: none;
+    width: 0;
+    height: 0;
+    
+    @if ($direction == top) {
+        border-bottom: $big solid $color;
+    }@else if ($direction == left) {
+        border-right: $big solid $color;
+    }@else if ($direction == bottom) {
+        border-top: $big solid $color;
+    }@else if ($direction == right) {
+        border-left: $big solid $color;
+    }
+  }
