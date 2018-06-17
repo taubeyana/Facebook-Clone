@@ -1,0 +1,155 @@
+// Basic Post Settings
+.btn {
+    @include button(5px 13px);
+    &.save-btn {
+        border: $border;
+    }
+    &.white-btn {
+        margin: $centred;
+        @include button(12px, white);
+        &:hover {
+            background-color: $body-hover-color-grey;
+        }
+    }
+}
+.post-header {
+    @include flex-item(initial, space-between, initial);
+}
+
+.publisher-name {
+    @include publisher-name();
+}
+.publisher img {
+    @include publisher-pic(45px,45px);
+    border: $border;
+}
+.publisher-info {
+    @include flex-item(column, initial, initial);
+    padding: 6px 10px;
+}
+.post-type-icon::before {
+    content: '\00B7';
+    padding: 8px 5px 0 4px;
+}
+.post-date {
+    display: inline-block;
+    font-size: 12px;
+    padding: 3px 0;
+}
+.post-options,
+.post-header {
+    position: relative;
+}
+
+.post-options-menu {
+    @include flex-item(column, initial, initial);
+    @include position(absolute,15px,0,unset,unset);
+    display: none;
+    width: 110px;
+    z-index: 1;
+    background-color: white;
+    border: $border;
+    box-shadow: $box-shadow;
+
+    & .bg {
+        width: 500px;
+        height: 120px;
+        @include position(absolute,0,0,unset,unset);
+        z-index: -1;
+    }
+    & .edit-post, .remove-post {
+        padding: 5px;
+        color: black;
+        cursor: pointer;
+        &:hover {
+            color: white;
+            background-color: $links-color-blue;
+        }
+    }
+    & .edit-post-area {
+        border: $border;
+        @include position(absolute,0,119px,unset,unset);
+        box-shadow: $box-shadow;
+        padding: 8px;
+        background-color: white;
+        display: none;
+        
+    }
+    & textarea {
+        width: 325px;
+        height: 80px;
+        overflow: auto;
+    }
+}
+.post {
+    padding: 12px;
+    & img, video {
+        max-width:100%;
+        max-height:100%;
+    }
+}
+.post-user-action {
+    @include flex-item(initial, space-around, center);
+    position: relative;
+    margin-top: 10px;
+    border-top: $border;
+    border-bottom: $border;
+}
+.light-padded {
+    padding: 7px;
+}
+.post-reactions {
+    @include flex-item(initial, initial, center);
+    margin-top: 10px;
+    display: none;
+    & img {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+// Dummy posts
+
+.post-comments-body,
+.public-post-follow {
+    @include flex-item(initial, space-between, initial);
+    padding: 15px;
+}
+
+
+.follow-btn {
+    border: $border;
+    span {
+        font-weight: $headers-font-weight;
+        font-size: $headers-font-size;
+    }
+}
+
+.post-preview {
+    border: $border;
+    width: 95%;
+    margin: auto;
+    box-shadow: $box-shadow;
+}
+
+.post-source { 
+    direction: initial;
+    display: inherit;
+}
+.post-likes .fa-thumbs-up {
+    color: #4679EB;
+}
+
+.download-btn {
+    @include position(absolute,9px,unset,unset,0);
+    @include button(0, white);
+    img {
+        height: 22px; width: 22px;
+    }
+}
+
+
+
+
+
+//-------------------
