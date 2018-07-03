@@ -5,6 +5,7 @@ let app = http.createServer((req, res) => {
   res.writeHead(200, {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*'
+    
   });
   let resObject = {
     posts: [
@@ -12,9 +13,11 @@ let app = http.createServer((req, res) => {
         user: {
           firstName: 'Yana',
           lastName: 'Taube',
-          image: 'img/userpic.jpg'
+          image: 'img/userpic.jpg',
+          name: 'Yana Taube',
+          id: 3
         },
-        message: "מחפשים מלון מומלץ ביוון הכל כלול המתאים לגילאי 2,5,8 שוט ",
+        message: "מחפשים מלון מומלץ ביוון הכל כלול המתאים לגילאי 2,5,88 שוט ",
         lang: 'heb',
         likes: 5
       },

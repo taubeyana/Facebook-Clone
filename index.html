@@ -8,6 +8,7 @@
 	<title>Facebook</title>
 </head>
 <body>
+	<div class="bg"></div>
 	<header class="header">
 		<div class="header-center flex-item"> 
 			<div class="search-bar flex-item">
@@ -150,7 +151,7 @@
 						<img src="img/pages.jpg" alt="icon" class="navbar-icon">
 						<span class="navbar-text">  Pages </span>
 					</a>
-					<!-- <a href="#" class="navbar-item"> 
+					<a href="#" class="navbar-item"> 
 						<img src="img/groups.png" alt="icon" class="navbar-icon">
 						<span class="navbar-text">  Friend Lists </span>
 					</a>
@@ -165,7 +166,7 @@
 					<a href="#" class="navbar-item"> 
 						<img src="img/groups.png" alt="icon" class="navbar-icon">
 						<span class="navbar-text">  Find Freiends </span>
-					</a> -->
+					</a>
 				</div>
 				<div class="see-more">
 					<i class="fas fa-caret-down"></i>
@@ -181,7 +182,7 @@
 			</nav>
 		</div> 
 		<main class="newsfeed">
-			<div class="user-input template">
+			<!-- <div class="user-input template">
 				<div class="user-input-links-top"> 
 					<a href="#">
 						<i class="fas fa-pencil-alt"></i>
@@ -218,6 +219,47 @@
 						<i class="fas fa-ellipsis-h"></i>
 					</button>
 				</div>
+			</div> -->
+			<div class="user-input template">
+					<div class="user-input-links-top"> 
+						<a href="#">
+							<i class="fas fa-pencil-alt"></i>
+							<span class="headers"> Make Post </span>
+							<div class="triangle-border"></div>
+							<div class="triangle"></div>
+						</a>
+						<a href="#" class="album">
+							<i class="fas fa-images"></i>
+							<span class="headers"> Photo/Video Album </span>
+						</a>
+						<a href="#" class="video">
+							<i class="fas fa-video"></i>
+							<span class="headers"> Live Video </span>
+						</a>
+						
+					</div>
+					<div class="user-input-text light-padded">
+						<img src="img/userpic.jpg" alt="userpic">
+						<textarea type="text" placeholder="What's on your mind, Yana?" class="user-input-textarea"></textarea>
+						
+					</div>
+					<div class="user-input-links-bottom flex-item"> 
+						<button class="grey-hover btn">
+							<i class="fas fa-image"></i>
+							<span> Photo/Video </span>
+						</button>
+						<button class="grey-hover btn">
+							<i class="fas fa-smile"></i>
+							<span> Feeling/Activity </span>
+						</button>
+						<button class="grey-hover btn">
+							<i class="fas fa-ellipsis-h"></i>
+						</button>
+						
+					</div>
+				<div class="extend-user-input">
+					<button class="btn postbtn">Post</button>
+				</div>
 			</div>
 			<section class="posts-area">
 				<div class="post template">
@@ -251,12 +293,12 @@
 							<span class="post-source light-padded"> GEEKTIME.CO.IL </span>
 						</div>
 					</a>
-					<div class="post-comments-body">
-						<div class="post-likes"> 
+					<div class="post-comments">
+						<div class="public-post-likes"> 
 							<i class="far fa-thumbs-up"></i>
 							<span class="likes"> 17 </span>
 						</div>
-						<div class="post-comments">
+						<div class="public-post-comments">
 							<span> 3 Comments </span>
 						</div>
 					</div>
@@ -275,7 +317,7 @@
 						</button>
 					</div>
 				</div>
-				<!-- <div class="post template">
+				<div class="post template">
 					<div class="post-header">
 						<figure class="publisher flex-item">
 							<img src="img/failarmy.jpg" alt="failarmy">
@@ -312,7 +354,7 @@
 					</a>
 					<div class="post-comments-body">
 						<span class="public-post-views descr-text"> 100K Views </span>
-						<div class="post-comments">
+						<div class="public-post-comments">
 							<span> 3 Comments </span>
 						</div>
 					</div>
@@ -331,7 +373,7 @@
 							<span> Share </span>
 						</button>
 					</div>
-				</div> -->
+				</div>
 				<div class="post template">
 					<div class="post-header">
 						<figure class="publisher flex-item">
@@ -378,9 +420,30 @@
 							<span> Share </span>
 						</button>
 					</div>
-					<div class="post-reactions">
-						<img src="img/like.png" alt="">
-						<span class="likes-num">3</span>
+				</div>
+				<div class="post-likes">
+					<img src="img/like.png" alt="">
+					<span class="likes-num">3</span>
+				</div>
+				<div class="post-comments">
+					<div class="post-comments-area">
+						<div class="comment">
+							<div class="user-info">
+								<img src="img/userpic.jpg" alt="userpic">
+								<div class="user-comment">
+									<span class="color-blue">Yana Taube</span>
+									<p class="user-comment-text"> blabla </p>
+								</div>
+							</div>
+						</div> 
+					</div>
+					<div class="personal-comment">
+						<img src="img/userpic.jpg" alt="userpic">
+						<div class="personal-comment-input-and-icons">
+							<input type="text" placeholder="Write a Comment..." class="user-comment-input">
+							<i class="far fa-smile"></i>
+							<i class="fas fa-camera"></i>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -460,7 +523,7 @@
 			</div>
 		</aside>
 	</div>
-	<!-- <script src="js/script.js"></script> -->
-	<script src="js/postCreation.js"></script>
+	<script src="js/post.js"></script>
+	<!-- <script src="js/postCreation.js"></script> -->
 </body>
 </html>

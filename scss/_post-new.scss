@@ -50,7 +50,7 @@
     background-color: white;
     border: $border;
     box-shadow: $box-shadow;
-
+    
     & .bg {
         width: 500px;
         height: 120px;
@@ -82,7 +82,11 @@
     }
 }
 .post {
-    padding: 12px;
+    padding: {
+        top:10px;
+        left: 10px;
+        right: 10px;
+    } 
     & img, video {
         max-width:100%;
         max-height:100%;
@@ -91,24 +95,65 @@
 .post-user-action {
     @include flex-item(initial, space-around, center);
     position: relative;
-    margin-top: 10px;
     border: {
         top: $border;
-        bottom: $border;
     }
 }
 .light-padded {
     padding: 7px;
 }
-.post-reactions {
+.post-likes {
     @include flex-item(initial, initial, center);
-    margin-top: 10px;
-    display: none;
+    padding: 8px;
+    border: 
+    {
+        left: $border;
+        right: $border;
+        bottom: $border;
+    }
     & img {
         width: 22px;
         height: 22px;
     }
 }
+.post-comments {
+    padding: 8px;
+    border: 
+    {
+        left: $border;
+        right: $border;
+        bottom: $border;
+    }
+    & img {
+        @include  publisher-pic(30px, 30px);
+    }
+    & .personal-comment, .user-info {
+        @include flex-item(initial,initial,center);
+    }
+    & .personal-comment-input-and-icons {
+        @include flex-item(initial,initial,center);
+        width: 100%;
+        background-color: white;
+        padding: 0 15px;
+        border: $border;
+        border-radius: 20px;
+        & input {
+            width: 100%;
+            height: 30px;
+        }
+        & [class*='fa-'] {
+            padding: 3px;
+        }
+    }
+    & .user-comment {
+        background-color: white;
+        padding: 10px;
+        border-radius: 15px;
+        margin: 0 0 10px 5px;
+    }
+}
+
+
 
 // Dummy posts
 
