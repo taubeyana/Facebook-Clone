@@ -104,7 +104,6 @@
 }
 .post-likes {
     display: none;
-    // @include flex-item(initial, initial, center);
     padding: 8px;
     border: 
     {
@@ -128,6 +127,7 @@
     & .comment {
         margin: 0 0 10px 5px;
         position: relative;
+        display: inline-block;
         & .comment-reactions {
             margin: 2px 40px;
             font-size: $small-font-size;
@@ -137,14 +137,14 @@
             }
         }
         & .comment-likes {
-            // display: inline-block;
             position: absolute;
             top: 30px;
-            left: 115px;
+            right: -10px;
             background: white;
             padding: 5px;
             border-radius: 10px;
             box-shadow: 0px 1px 4px 0px grey;
+            display: none;
         }
     }
     & img {
@@ -175,12 +175,8 @@
         background-color: white;
         padding: 10px;
         border-radius: 15px;
-        // display: inline-block;
-        
     }
 }
-
-
 
 // Dummy posts
 
