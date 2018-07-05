@@ -125,10 +125,32 @@
         right: $border;
         bottom: $border;
     }
+    & .comment {
+        margin: 0 0 10px 5px;
+        position: relative;
+        & .comment-reactions {
+            margin: 2px 40px;
+            font-size: $small-font-size;
+            & .like::after {
+                content: '\00B7';
+                padding-left: 4px;
+            }
+        }
+        & .comment-likes {
+            // display: inline-block;
+            position: absolute;
+            top: 30px;
+            left: 115px;
+            background: white;
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0px 1px 4px 0px grey;
+        }
+    }
     & img {
         @include  publisher-pic(30px, 30px);
     }
-    & .personal-comment, .user-info {
+    & .personal-comment {
         @include flex-item(initial,initial,center);
     }
     & .personal-comment-input-and-icons {
@@ -146,11 +168,15 @@
             padding: 3px;
         }
     }
+    & .user-info, .user-comment, .comment-likes  {
+        display: inline-block;
+    }
     & .user-comment {
         background-color: white;
         padding: 10px;
         border-radius: 15px;
-        margin: 0 0 10px 5px;
+        // display: inline-block;
+        
     }
 }
 
