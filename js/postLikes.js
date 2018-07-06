@@ -35,11 +35,17 @@ class PostLikes extends Likes {
 class CommentLikes extends Likes {
     constructor(parent) {
         super(parent);
+        this.div.setAttribute('class', 'comment-likes likes');
         this.div.innerHTML = `
-        <div class="comment-likes likes">
+        <div class="likes">
             <i class="far fa-thumbs-up"></i>
-            <span class="likes-num"></span>
-        </div>`
+            <span class="likes-num"></span></div
+        `
         this.parent.appendChild(this.div);
     }
+    displayLikes() {
+        this.div.style.display = 'block';
+        this.reactionsCounter();
+    }
+    
 }

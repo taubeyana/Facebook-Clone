@@ -116,6 +116,7 @@
         height: 22px;
     }
 }
+
 .post-comments {
     padding: 8px;
     border: 
@@ -125,17 +126,21 @@
         bottom: $border;
     }
     & .comment {
-        margin: 0 0 10px 5px;
-        position: relative;
-        display: inline-block;
+        margin-bottom: 10px;
+        // position: relative;
+        // display: inline-block;
         & .comment-reactions {
-            margin: 2px 40px;
+            // margin: 2px 40px;
+            bottom: -15px;
+            background-color: #E9EBEE;
+            position: absolute;
             font-size: $small-font-size;
             & .like::after {
                 content: '\00B7';
                 padding-left: 4px;
             }
         }
+        
         & .comment-likes {
             position: absolute;
             top: 30px;
@@ -168,13 +173,20 @@
             padding: 3px;
         }
     }
-    & .user-info, .user-comment, .comment-likes  {
+    & .user-info, .user-comment  {
         display: inline-block;
     }
     & .user-comment {
         background-color: white;
         padding: 10px;
         border-radius: 15px;
+        position: relative;
+        margin-bottom: 20px;
+
+    }
+    & .post-comments-area {
+        display: flex;
+        flex-direction: column;
     }
 }
 

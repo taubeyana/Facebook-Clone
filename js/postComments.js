@@ -25,21 +25,23 @@ class PostComments {
         if (event.keyCode === 13) {
             this.commentsArea = $(this.div, '.post-comments-area');
             this.userComment = document.createElement('DIV');
-            this.userComment.setAttribute('class', 'comment')
+            this.userComment.setAttribute('class', 'comment');
             this.userComment.innerHTML = `
-                <div class="user-info">
-                    <img src="img/userpic.jpg" alt="userpic">
-                </div>
-                <div class="user-comment">
-                    <span class="color-blue">${this.user.fullName}</span>
-                    <p class="user-comment-text">${this.userCommentInput.value}</p>
-                </div>
+            <div class="user-info">
+                <img src="img/userpic.jpg" alt="userpic">
+            </div>
+            <div class="user-comment">
+                <span class="color-blue">${this.user.fullName}</span>
+                <p class="user-comment-text">${this.userCommentInput.value}</p>
                 <div class="comment-reactions">
                     <span class="like color-blue">Like</span>
                     <span class="color-blue">Reply</span>
-                </div>`
+                </div>
+            </div>
+            `
+            this.userComment2 = $(this.userComment, '.user-comment');
             this.commentsArea.appendChild(this.userComment);
-            this.con = new CommentLikes(this.userComment);
+            this.con = new CommentLikes(this.userComment2);
             this.userCommentInput.value = '';
         }
     }
