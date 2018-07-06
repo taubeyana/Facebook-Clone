@@ -143,13 +143,26 @@
         
         & .comment-likes {
             position: absolute;
-            top: 30px;
-            right: -10px;
+            top: 40px;
+            right: -7px;
             background: white;
-            padding: 5px;
-            border-radius: 10px;
-            box-shadow: 0px 1px 4px 0px grey;
+            border-radius: 15px;
+            box-shadow: 0px 1px 10px 2px lightgrey;
             display: none;
+            transition: display 1s;
+            & .likes {
+                display: flex;
+                align-items: center;
+                padding: 2px;
+                & span, img {
+                    padding: 2px;
+                } 
+            }
+        }
+        & img {
+            width: 22px;
+            height: 22px;
+            border: none;
         }
     }
     & img {

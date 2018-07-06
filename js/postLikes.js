@@ -38,7 +38,7 @@ class CommentLikes extends Likes {
         this.div.setAttribute('class', 'comment-likes likes');
         this.div.innerHTML = `
         <div class="likes">
-            <i class="far fa-thumbs-up"></i>
+            <img src="img/like.png" alt="">     
             <span class="likes-num"></span></div
         `
         this.parent.appendChild(this.div);
