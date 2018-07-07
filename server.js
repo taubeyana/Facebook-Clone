@@ -25,7 +25,8 @@ let app = http.createServer((req, res) => {
         user: {
           firstName: 'Slava',
           lastName: 'Rozman',
-          image: 'img/slava.jpg'
+          image: 'img/slava.jpg',
+          name: 'Slava Rozman'
         },
         message: "I ate apple tommorow",
         lang: '',

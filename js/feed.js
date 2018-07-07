@@ -14,6 +14,7 @@ class Feed {
     onUser(user) {
         this.user = user;
         this.userPosts = this.fetchPosts(this.user);
+        this.serverPosts = this.fetchServerPosts();
         this.render();
         
     }
@@ -33,6 +34,10 @@ class Feed {
                 log(el)
             });
         })
+    }
+    fetchServerPosts() {
+        PostsService.getServerPosts()
+        // .then(res => log(res));
     }
     createPost() {
         let userInput = this.input.value;
