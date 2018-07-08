@@ -21,6 +21,37 @@ class UsersService {
 // Fetching posts from server
 
 
+// class PostsService {
+//     static getUserPosts(user) {
+//         return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user}`)
+//         .then(res => res.json())
+//         .then(posts => posts);
+//     }
+//     static getServerPosts() {
+//         return fetch('http://127.0.0.1:3000').then(data => {
+//             data.json().then(myjson => {
+//                 let posts = myjson.posts;
+//                 let feed = document.querySelector('.posts-area');
+//                 posts.forEach(post => {
+//                     let user =  new User(post.user);
+//                     let newpost = new Post(user,post.message,post.likes, post.lang);
+//                     feed.insertBefore(newpost.div, feed.firstChild);
+//                 });
+//                 localStorage.setItem('posts', JSON.stringify(myjson));
+//             });
+//         }).catch(() => {
+//                 log('Offline mode');
+//                 let feed = document.querySelector('.posts-area');
+//                 let offlinePosts = JSON.parse(localStorage.getItem('posts'));
+//                 offlinePosts.posts.forEach(post => {
+//                     let user =  new User(post.user);
+//                     let newpost = new Post(user,post.message,post.likes, post.lang);
+//                     feed.insertBefore(newpost.div, feed.firstChild);
+//             }); 
+//         });
+//     }
+// }
+
 class PostsService {
     static getUserPosts(user) {
         return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user}`)
@@ -29,16 +60,7 @@ class PostsService {
     }
     static getServerPosts() {
         return fetch('http://127.0.0.1:3000').then(data => {
-            data.json().then(myjson => {
-                let posts = myjson.posts;
-                let feed = document.querySelector('.posts-area');
-                posts.forEach(post => {
-                    let user =  new User(post.user);
-                    let newpost = new Post(user,post.message,post.likes, post.lang);
-                    feed.insertBefore(newpost.div, feed.firstChild);
-                });
-                localStorage.setItem('posts', JSON.stringify(myjson));
-            });
+            data.json().then(myjson => myjson.posts);
         }).catch(() => {
                 log('Offline mode');
                 let feed = document.querySelector('.posts-area');

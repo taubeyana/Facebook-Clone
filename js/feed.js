@@ -37,6 +37,7 @@ class Feed {
     }
     fetchServerPosts() {
         PostsService.getServerPosts()
+        .then(posts => log(posts));
     }
     createPost() {
         let userInput = this.input.value;

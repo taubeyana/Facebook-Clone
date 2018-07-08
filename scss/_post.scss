@@ -119,7 +119,9 @@
 
 .post-comments {
     padding: 8px;
+    background-color: #F2F3F5;
     border: 
+
     {
         left: $border;
         right: $border;
@@ -129,13 +131,22 @@
         margin-bottom: 10px;
         & .comment-reactions {
             bottom: -15px;
-            background-color: #E9EBEE;
             position: absolute;
             font-size: $small-font-size;
             & .like::after {
                 content: '\00B7';
                 padding-left: 4px;
             }
+        }
+        & .comment-options {
+            background-color: initial;
+            border: none;
+            position: absolute;
+            top: 40%;
+            right: -20px;
+            cursor: pointer;
+            color: #C1C2C4;
+            outline: none;
         }
         
         & .comment-likes {
