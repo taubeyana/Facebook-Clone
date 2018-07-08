@@ -30,14 +30,13 @@ class Feed {
         PostsService.getUserPosts(user.id)
         .then(posts => {
             posts.forEach(element => {
-                let el = new DynamicPost(this.user.fullName, element.body);
-                log(el)
+                let post = new Post(this.user,element.body);
+                this.postsArea.insertBefore(post.div, this.postsArea.firstChild);
             });
-        })
+        });
     }
     fetchServerPosts() {
         PostsService.getServerPosts()
-        // .then(res => log(res));
     }
     createPost() {
         let userInput = this.input.value;

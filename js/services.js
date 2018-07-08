@@ -18,7 +18,8 @@ class UsersService {
     }
 }
 
-// Fetching user posts by user id from server
+// Fetching posts from server
+
 
 class PostsService {
     static getUserPosts(user) {

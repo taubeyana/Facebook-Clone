@@ -4,6 +4,7 @@ class Post {
         this.userInput = userInput;
         this.lang = lang;
         this.date = new Date;
+        // debugger;
         this.div = document.createElement('DIV');
         this.div.innerHTML = `
         <div class="post template">
