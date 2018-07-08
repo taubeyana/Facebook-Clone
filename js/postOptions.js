@@ -19,11 +19,11 @@ class PostOptions{
                 </div>
             </div>
         </div>`;
-        this.optionsMenu = $(this.div,'.post-options-menu');
+        this.optionsMenu = query(this.div,'.post-options-menu');
         this.showPostOptions = this.div.querySelector('.fa-ellipsis-h');
-        this.removeBtn = $(this.div,'.remove-post');
-        this.editBtn = $(this.div,'.edit-post');
-        this.saveBtn = $(this.div,'.edit-post-area .save-btn');
+        this.removeBtn = query(this.div,'.remove-post');
+        this.editBtn = query(this.div,'.edit-post');
+        this.saveBtn = query(this.div,'.edit-post-area .save-btn');
         this.listeners();
     }
 
@@ -34,8 +34,8 @@ class PostOptions{
         this.showPostOptions.addEventListener('click', () => this.optionsMenu.style.display = 'flex');
     }
     editPost() {
-        this.textarea = $(this.div,'.edit-post-area textarea');
-        this.postText = $(this.parent,'.post-text');
+        this.textarea = query(this.div,'.edit-post-area textarea');
+        this.postText = query(this.parent,'.post-text');
         this.textarea.innerText =  this.postText.innerText;
         this.textarea.parentNode.style.display = 'block';
         this.saveBtn.addEventListener('click', () =>{

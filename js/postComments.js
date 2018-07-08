@@ -2,8 +2,8 @@ class PostComments {
     constructor(parent,user) {
         this.parent = parent;
         this.user = user;
-        this.div = document.createElement('DIV');
-        this.div.innerHTML = `
+        this.div = $('<div></div>')
+        .html(`
         <div class="post-comments">
             <div class="post-comments-area">
             </div>  
@@ -15,15 +15,14 @@ class PostComments {
                     <i class="fas fa-camera"></i>
                 </div>
             </div>
-        </div>`
-        this.parent.appendChild(this.div);
-        this.userCommentInput = $(this.div, '.user-comment-input');
-        this.userCommentInput.addEventListener('keypress', (event) => this.addComment(event));
+        </div>`)
+        .appendTo(this.parent);
+        this.userCommentInput = $('.user-comment-input', this.div).on('keypress', (event) => this.addComment(event));
         
     }
     addComment(event) {
         if (event.keyCode === 13) {
-            this.commentsArea = $(this.div, '.post-comments-area');
+            this.commentsArea = query(this.div, '.post-comments-area');
             this.userComment = document.createElement('DIV');
             this.userComment.setAttribute('class', 'comment');
             this.userComment.innerHTML = `
@@ -39,7 +38,7 @@ class PostComments {
                 </div>
             </div>
             `
-            this.userComment2 = $(this.userComment, '.user-comment');
+            this.userComment2 = query(this.userComment, '.user-comment');
             this.commentsArea.appendChild(this.userComment);
             this.con = new CommentLikes(this.userComment2);
             this.userCommentInput.value = '';

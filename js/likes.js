@@ -1,21 +1,21 @@
 class Likes {
     constructor(parent) {
         this.parent = parent;
-        this.likeBtn = $(this.parent,'.like');
+        this.likeBtn = query(this.parent,'.like');
         this.div = document.createElement('DIV');
         this.likes = 0;
         this.likeBtn.addEventListener('click', () => this.displayLikes());
 
     }
     displayLikes() {
-        this.reactions = $(this.div,'.likes');
+        this.reactions = query(this.div,'.likes');
         this.reactions.style.display = 'flex';
         this.reactionsCounter();
     }
 
     reactionsCounter() {
         this.likes++;
-        this.likesNum = $(this.div,'.likes-num');
+        this.likesNum = query(this.div,'.likes-num');
         this.likesNum.innerText = this.likes;
     }
 }

@@ -1,10 +1,10 @@
 // Helpers for short selections and debug
 
 const {log} = console;
-const $ = function(mainEl,selector) {
+const query = function(mainEl,selector) {
     return mainEl.querySelector(selector);
 }
-const $$ = function(mainEl,selector) {
+const queryAll = function(mainEl,selector) {
     return mainEl.querySelectorAll(selector);
 }
 
@@ -73,3 +73,9 @@ class PostsService {
         });
     }
 }
+
+// class CommentsService {
+//     static getComments(userId) {
+//         return fetch()
+//     }
+// }

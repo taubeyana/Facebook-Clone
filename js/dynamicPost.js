@@ -37,7 +37,7 @@ class DynamicPost {
                 </button>
             </div>
         </div>`;
-    this.header = $(this.div,'.post-header');
+    this.header = query(this.div,'.post-header');
     this.options = new PostOptions(this.div);
     this.header.appendChild(this.options.div);
     this.postLikes = new PostLikes(this.div); 

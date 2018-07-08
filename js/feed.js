@@ -19,10 +19,10 @@ class Feed {
         
     }
     render() {
-        this.postbtn = $(this.mainEl,'.postbtn');
-        this.input = $(this.mainEl, '.user-input textarea');
+        this.postbtn = query(this.mainEl,'.postbtn');
+        this.input = query(this.mainEl, '.user-input textarea');
         this.input.setAttribute('placeholder', `What's on your mind, ${this.user.fullName}`);
-        this.postsArea = $(this.mainEl, '.posts-area');
+        this.postsArea = query(this.mainEl, '.posts-area');
         this.postbtn.addEventListener('click',() => this.createPost());
     }
 
