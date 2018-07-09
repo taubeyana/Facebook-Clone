@@ -1,50 +1,49 @@
 class Likes {
     constructor(parent) {
         this.parent = parent;
-        this.likeBtn = query(this.parent,'.like');
-        this.div = document.createElement('DIV');
+        this.likeBtn = $('.like',this.parent).click(() => this.displayLikes());
+        this.div = $('<div></div>');
         this.likes = 0;
-        this.likeBtn.addEventListener('click', () => this.displayLikes());
 
     }
     displayLikes() {
-        this.reactions = query(this.div,'.likes');
-        this.reactions.style.display = 'flex';
+        this.reactions = $('.likes',this.div)
+        .css('display','flex');
         this.reactionsCounter();
     }
 
     reactionsCounter() {
         this.likes++;
-        this.likesNum = query(this.div,'.likes-num');
-        this.likesNum.innerText = this.likes;
+        this.likesNum = $('.likes-num',this.div)
+        .text(this.likes);
     }
 }
 
 class PostLikes extends Likes {
     constructor(parent) {
         super(parent);
-        this.div.innerHTML = `
+        this.div.html(`
         <div class="post-likes likes">
             <img src="img/like.png" alt="">
             <span class="likes-num"></span>
-        </div>`
-        this.parent.appendChild(this.div);
+        </div>`)
+        .appendTo(this.parent);
     }
 }
 
 class CommentLikes extends Likes {
     constructor(parent) {
         super(parent);
-        this.div.setAttribute('class', 'comment-likes likes');
-        this.div.innerHTML = `
+        this.div.attr('class', 'comment-likes likes');
+        this.div.html(`
         <div class="likes">
             <img src="img/like.png" alt="">     
             <span class="likes-num"></span>
-        </div>`
-        this.parent.appendChild(this.div);
+        </div>`)
+        .appendTo(this.parent);
     }
     displayLikes() {
-        this.div.style.display = 'block';
+        this.div.css('display','flex');
         this.reactionsCounter();
     }
     

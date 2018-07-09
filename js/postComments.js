@@ -2,8 +2,8 @@ class PostComments {
     constructor(parent,user) {
         this.parent = parent;
         this.user = user;
-        this.div = document.createElement('DIV');
-        this.div.innerHTML = `
+        this.div = $('<div></div>')
+        .html(`
         <div class="post-comments">
             <div class="post-comments-area">
             </div>  
@@ -15,35 +15,37 @@ class PostComments {
                     <i class="fas fa-camera"></i>
                 </div>
             </div>
-        </div>`;
-        this.parent.appendChild(this.div);
-        this.userCommentInput = query(this.div, '.user-comment-input');
-        this.userCommentInput.addEventListener('keypress', (event) => this.addComment(event));
-        // this.userCommentInput = $('.user-comment-input', this.div).on('keypress', (event) => this.addComment(event));
+        </div>`)
+        .appendTo(this.parent);
+        // this.parent.appendChild(this.div);
+        // this.userCommentInput = $('.user-comment-input',this.div).
+        // this.userCommentInput.addEventListener('keypress', (event) => this.addComment(event));
+        this.userCommentInput = $('.user-comment-input', this.div).on('keypress', (event) => this.addComment(event));
         
     }
     addComment(event) {
         if (event.keyCode === 13) {
-            this.commentsArea = query(this.div, '.post-comments-area');
-            this.userComment = document.createElement('DIV');
-            this.userComment.setAttribute('class', 'comment');
-            this.userComment.innerHTML = `
+            this.commentsArea = $('.post-comments-area',this.div);
+            this.userComment = $('<div></div>')
+            .attr('class', 'comment')
+            .html(`
             <div class="user-info">
                 <img src="img/userpic.jpg" alt="userpic">
             </div>
             <div class="user-comment">
                 <span class="color-blue">${this.user.fullName}</span>
-                <p class="user-comment-text">${this.userCommentInput.value}</p>
+                <p class="user-comment-text">${this.userCommentInput.val()}</p>
                 <div class="comment-reactions">
                     <span class="like color-blue">Like</span>
                     <span class="color-blue">Reply</span>
                 </div>
             </div>
-            `
-            this.userComment2 = query(this.userComment, '.user-comment');
-            this.commentsArea.appendChild(this.userComment);
+            `)
+            .appendTo(this.commentsArea);
+            // this.commentsArea.appendChild(this.userComment);
+            this.userComment2 = $('.user-comment',this.userComment);
             this.con = new CommentLikes(this.userComment2);
-            this.userCommentInput.value = '';
+            this.userCommentInput.val('');
         }
     }
 }
