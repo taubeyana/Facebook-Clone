@@ -59,9 +59,10 @@ class PostsService {
         .then(posts => posts);
     }
     static getServerPosts() {
-        return fetch('http://127.0.0.1:3000').then(data => {
-            data.json().then(myjson => myjson.posts);
-        }).catch(() => {
+        return fetch('http://127.0.0.1:3000')
+        .then(data => data.json())
+        .then(myjson => myjson.posts)
+        .catch(() => {
                 log('Offline mode');
                 let feed = document.querySelector('.posts-area');
                 let offlinePosts = JSON.parse(localStorage.getItem('posts'));
