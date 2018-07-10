@@ -1,15 +1,15 @@
-new Feed(document.querySelector('.newsfeed'),5);
+new Feed($('.newsfeed'),5);
 
-let body = document.querySelector('body');
-let extendedInput = document.querySelector('.extend-user-input');
+let body = $('body');
+let extendedInput = $('.extend-user-input');
 
-body.addEventListener('click',(event) => {
+body.on('click',(event) => {
     if (event.target.className === 'user-input-textarea') {
-        extendedInput.style.display = 'block';
+        extendedInput.slideDown();
     }
 });
-body.addEventListener('click',(event) => {
+body.on('click',(event) => {
     if (event.target.className !== 'user-input-textarea') {
-        extendedInput.style.display = 'none';
+        extendedInput.slideUp();
     }
 });

@@ -105,6 +105,7 @@
 .post-likes {
     display: none;
     padding: 8px;
+    background-color: #F2F3F5;
     border: 
     {
         left: $border;
@@ -121,7 +122,6 @@
     padding: 8px;
     background-color: #F2F3F5;
     border: 
-
     {
         left: $border;
         right: $border;
@@ -139,8 +139,6 @@
             }
         }
         & .comment-options {
-            // background-color: initial;
-            // border: none;
             position: absolute;
             top: 40%;
             right: -20px;
@@ -157,7 +155,6 @@
             border-radius: 15px;
             box-shadow: 0px 1px 10px 2px lightgrey;
             display: none;
-            transition: opacity 3s;
             & .likes {
                 display: flex;
                 align-items: center;

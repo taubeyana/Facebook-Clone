@@ -7,8 +7,8 @@ class Likes {
 
     }
     displayLikes() {
-        this.reactions = $('.likes',this.div)
-        .css('display','flex');
+        // this.reactions = $('.likes',this.div).show();
+        this.reactions = $('.likes',this.div).slideDown();
         this.reactionsCounter();
     }
 
@@ -43,7 +43,7 @@ class CommentLikes extends Likes {
         .appendTo(this.parent);
     }
     displayLikes() {
-        this.div.css('display','flex');
+        this.div.show();
         this.reactionsCounter();
     }
     

@@ -1,8 +1,8 @@
 class PostOptions{
     constructor(parent) {
         this.parent = parent;
-        this.div = document.createElement('DIV');
-        this.div.innerHTML = `
+        this.div = $('<div></div>')
+        .html(`
         <div class="post-options">
             <i class="fas fa-ellipsis-h"></i>
             <div class="post-options-menu">
@@ -18,32 +18,32 @@ class PostOptions{
                     <span> Remove Post </span>
                 </div>
             </div>
-        </div>`;
-        this.optionsMenu = query(this.div,'.post-options-menu');
-        this.showPostOptions = this.div.querySelector('.fa-ellipsis-h');
-        this.removeBtn = query(this.div,'.remove-post');
-        this.editBtn = query(this.div,'.edit-post');
-        this.saveBtn = query(this.div,'.edit-post-area .save-btn');
+        </div>`);
+        this.optionsMenu = $('.post-options-menu',this.div);
+        this.showPostOptions = $('.fa-ellipsis-h',this.div);
+        this.removeBtn = $('.remove-post',this.div);
+        this.editBtn = $('.edit-post',this.div);
+        this.saveBtn = $('.edit-post-area .save-btn', this.div);
         this.listeners();
     }
 
     listeners() {
-        this.removeBtn.addEventListener('click', () => this.removePost());
-        this.editBtn.addEventListener('click', () => this.editPost());
-        this.optionsMenu.addEventListener('mouseleave', () => this.optionsMenu.style.display = 'none');
-        this.showPostOptions.addEventListener('click', () => this.optionsMenu.style.display = 'flex');
+        this.removeBtn.click(() => this.removePost());
+        this.editBtn.click(() => this.editPost());
+        this.optionsMenu.on('mouseleave', () => this.optionsMenu.hide());
+        this.showPostOptions.on('click', () => this.optionsMenu.show());
     }
     editPost() {
-        this.textarea = query(this.div,'.edit-post-area textarea');
-        this.postText = query(this.parent,'.post-text');
-        this.textarea.innerText =  this.postText.innerText;
-        this.textarea.parentNode.style.display = 'block';
-        this.saveBtn.addEventListener('click', () =>{
-            this.postText.innerText = this.textarea.value;
-            this.optionsMenu.style.display = 'none';
+        this.textarea = $('.edit-post-area textarea',this.div);
+        this.postText = $('.post-text',this.parent);
+        this.textarea.text(this.postText.text());
+        this.textarea.parent().show();
+        this.saveBtn.on('click', () =>{
+            this.postText.text(this.textarea.val());
+            this.optionsMenu.hide();
         });
     }
     removePost() {
-        this.parent.parentNode.removeChild(this.parent);
+        this.parent.remove();
     }
 }

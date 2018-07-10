@@ -17,16 +17,14 @@ class PostComments {
             </div>
         </div>`)
         .appendTo(this.parent);
-        // this.parent.appendChild(this.div);
-        // this.userCommentInput = $('.user-comment-input',this.div).
-        // this.userCommentInput.addEventListener('keypress', (event) => this.addComment(event));
-        this.userCommentInput = $('.user-comment-input', this.div).on('keypress', (event) => this.addComment(event));
+        this.userCommentInput = $('.user-comment-input', this.div)
+        .on('keypress', (event) => this.addComment(event));
         
     }
     addComment(event) {
         if (event.keyCode === 13) {
             this.commentsArea = $('.post-comments-area',this.div);
-            this.userComment = $('<div></div>')
+            this.comment = $('<div></div>')
             .attr('class', 'comment')
             .html(`
             <div class="user-info">
@@ -42,9 +40,8 @@ class PostComments {
             </div>
             `)
             .appendTo(this.commentsArea);
-            // this.commentsArea.appendChild(this.userComment);
-            this.userComment2 = $('.user-comment',this.userComment);
-            this.con = new CommentLikes(this.userComment2);
+            this.userComment = $('.user-comment',this.comment);
+            new CommentLikes(this.userComment);
             this.userCommentInput.val('');
         }
     }
