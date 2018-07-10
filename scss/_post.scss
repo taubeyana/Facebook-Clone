@@ -57,15 +57,15 @@
         @include position(absolute,0,0,unset,unset);
         z-index: -1;
     }
-    & .edit-post, .remove-post {
-        padding: 5px;
-        color: black;
-        cursor: pointer;
-        &:hover {
-            color: white;
-            background-color: $links-color-blue;
-        }
-    }
+    // & .edit-post, .remove-post, .remove-comment {
+    //     padding: 5px;
+    //     color: black;
+    //     cursor: pointer;
+    //     &:hover {
+    //         color: white;
+    //         background-color: $links-color-blue;
+    //     }
+    // }
     & .edit-post-area {
         border: $border;
         @include position(absolute,0,119px,unset,unset);
@@ -79,6 +79,15 @@
         width: 325px;
         height: 80px;
         overflow: auto;
+    }
+}
+.edit-post, .remove-post, .remove-comment {
+    padding: 5px;
+    color: black;
+    cursor: pointer;
+    &:hover {
+        color: white;
+        background-color: $links-color-blue;
     }
 }
 .post {
@@ -141,11 +150,24 @@
         & .comment-options {
             position: absolute;
             top: 40%;
-            right: -20px;
+            left: 110%;
             cursor: pointer;
             color: #C1C2C4;
             outline: none;
+            // &:hover .comment-options-menu {
+            //     display: block;
+            // }
         }
+        & .comment-options-menu {
+            display: none;
+            background-color: white;
+            border: $border;
+            box-shadow: $box-shadow;
+            & .remove-comment {
+                display: inline-block;
+            }
+        } 
+
         
         & .comment-likes {
             position: absolute;

@@ -1,6 +1,16 @@
-class PostOptions{
+class Options {
     constructor(parent) {
         this.parent = parent;
+    }
+    removePost() {
+        // this.parent.parentNode.removeChild(this.parent);
+        this.parent.remove();
+    }
+}
+class PostOptions extends Options{
+    constructor(parent) {
+        // this.parent = parent;
+        super(parent);
         this.div = document.createElement('DIV');
         this.div.innerHTML = `
         <div class="post-options">
@@ -43,7 +53,5 @@ class PostOptions{
             this.optionsMenu.style.display = 'none';
         });
     }
-    removePost() {
-        this.parent.parentNode.removeChild(this.parent);
-    }
+
 }

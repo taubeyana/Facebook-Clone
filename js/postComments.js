@@ -42,6 +42,7 @@ class PostComments {
             .appendTo(this.commentsArea);
             this.userComment = $('.user-comment',this.comment);
             new CommentLikes(this.userComment);
+            new CommentsOptions(this.userComment);
             this.userCommentInput.val('');
         }
     }

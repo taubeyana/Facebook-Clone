@@ -7,7 +7,6 @@ class Likes {
 
     }
     displayLikes() {
-        // this.reactions = $('.likes',this.div).show();
         this.reactions = $('.likes',this.div).slideDown();
         this.reactionsCounter();
     }
