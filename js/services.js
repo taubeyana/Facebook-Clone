@@ -41,8 +41,10 @@ class PostsService {
     }
 }
 
-// class CommentsService {
-//     static getComments(userId) {
-//         return fetch()
-//     }
-// }
+class CommentsService {
+    static getComments(postId) {
+        return fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
+        .then(data => data.json())
+        .then(comments => comments)
+    }
+}

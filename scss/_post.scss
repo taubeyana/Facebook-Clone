@@ -57,15 +57,6 @@
         @include position(absolute,0,0,unset,unset);
         z-index: -1;
     }
-    // & .edit-post, .remove-post, .remove-comment {
-    //     padding: 5px;
-    //     color: black;
-    //     cursor: pointer;
-    //     &:hover {
-    //         color: white;
-    //         background-color: $links-color-blue;
-    //     }
-    // }
     & .edit-post-area {
         border: $border;
         @include position(absolute,0,119px,unset,unset);
@@ -138,6 +129,7 @@
     }
     & .comment {
         margin-bottom: 10px;
+        max-width: 95%;
         & .comment-reactions {
             bottom: -15px;
             position: absolute;
@@ -150,13 +142,11 @@
         & .comment-options {
             position: absolute;
             top: 40%;
-            left: 110%;
+            left: 100%;
             cursor: pointer;
             color: #C1C2C4;
             outline: none;
-            // &:hover .comment-options-menu {
-            //     display: block;
-            // }
+            margin-left: 5px;
         }
         & .comment-options-menu {
             display: none;

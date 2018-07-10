@@ -19,7 +19,7 @@ class Post {
                     </figcaption>
                 </figure>
             </div>
-            <p class="post-text light-padded ${this.lang}">${this.userInput}</p>    
+            <p class="post-text light-padded ${this.lang}">${this.userInput}</p> 
             <div class="post-user-action">
                 <button class="like white-btn btn">
                     <i class="far fa-thumbs-up"></i>

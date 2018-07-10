@@ -56,7 +56,6 @@ class PostOptions extends Options {
             this.optionsMenu.hide();
         });
     }
-
 }
 
 class CommentsOptions extends Options {

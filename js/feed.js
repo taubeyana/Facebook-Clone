@@ -35,6 +35,11 @@ class Feed {
             });
         });
     }
+    fetchPostComments(postID) {
+        CommentsService.getComments(postID)
+        .then(comments => log(comments));
+    } 
+    
     fetchServerPosts() {
         PostsService.getServerPosts()
         .then(posts => {
