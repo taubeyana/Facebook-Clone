@@ -4,9 +4,8 @@ class Post {
         this.userInput = userInput;
         this.lang = lang;
         this.date = new Date;
-        // debugger;
-        this.div = document.createElement('DIV');
-        this.div.innerHTML = `
+        this.div = $('<div></div>')
+        .html(`
         <div class="post template">
             <div class="post-header">
                 <figure class="publisher flex-item">
@@ -20,9 +19,7 @@ class Post {
                     </figcaption>
                 </figure>
             </div>
-            <p class="post-text light-padded ${this.lang}">
-                ${this.userInput}
-            </p>    
+            <p class="post-text light-padded ${this.lang}">${this.userInput}</p>    
             <div class="post-user-action">
                 <button class="like white-btn btn">
                     <i class="far fa-thumbs-up"></i>
@@ -37,11 +34,11 @@ class Post {
                     <span> Share </span>
                 </button>
             </div>
-        </div>`;
-    this.header = query(this.div,'.post-header');
+        </div>`);
+    this.header = $('.post-header',this.div);
     this.options = new PostOptions(this.div);
-    this.header.appendChild(this.options.div);
-    this.postLikes = new PostLikes(this.div); 
+    this.header.append(this.options.div);
+    this.postLikes = new PostLikes(this.div);
     this.postComments = new PostComments(this.div,this.user);
     }
 }

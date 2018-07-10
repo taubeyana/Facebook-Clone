@@ -17,7 +17,7 @@ let app = http.createServer((req, res) => {
           name: 'Yana Taube',
           id: 3
         },
-        message: "מחפשים מלון מומלץ ביוון הכל כלול המתאים לגילאי 2,5,88 שוט ",
+        message: "מחפשים מלון מומלץ ביוון הכל כלול המתאים לגילאי 2,5,8 שוט ",
         lang: 'heb',
         likes: 5
       },

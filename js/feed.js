@@ -19,11 +19,11 @@ class Feed {
         
     }
     render() {
-        this.postbtn = query(this.mainEl,'.postbtn');
-        this.input = query(this.mainEl, '.user-input textarea');
-        this.input.setAttribute('placeholder', `What's on your mind, ${this.user.fullName}`);
-        this.postsArea = query(this.mainEl, '.posts-area');
-        this.postbtn.addEventListener('click',() => this.createPost());
+        this.postbtn = $('.postbtn',this.mainEl);
+        this.input = $('.user-input textarea',this.mainEl);
+        this.input.attr('placeholder', `What's on your mind, ${this.user.fullName}`);
+        this.postsArea = $('.posts-area',this.mainEl);
+        this.postbtn.on('click',() => this.createPost());
     }
 
     fetchPosts(user) {
@@ -31,18 +31,23 @@ class Feed {
         .then(posts => {
             posts.forEach(element => {
                 let post = new Post(this.user,element.body);
-                this.postsArea.insertBefore(post.div, this.postsArea.firstChild);
+                this.postsArea.prepend(post.div);
             });
         });
     }
     fetchServerPosts() {
         PostsService.getServerPosts()
-        .then(posts => log(posts));
+        .then(posts => {
+            posts.forEach(element => {
+                let post = new Post(this.user, element.message);
+                this.postsArea.prepend(post.div);
+            });
+        });
     }
     createPost() {
-        let userInput = this.input.value;
-        this.input.value =  '';
+        let userInput = this.input.val();
+        this.input.val('');
         let post = new Post(this.user, userInput);
-        this.postsArea.insertBefore(post.div, this.postsArea.firstChild);
+        this.postsArea.prepend(post.div);
     }
 }
