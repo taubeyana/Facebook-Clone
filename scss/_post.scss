@@ -36,41 +36,16 @@
     font-size: 12px;
     padding: 3px 0;
 }
-.post-options,
 .post-header {
     position: relative;
 }
-
 .post-options-menu {
-    @include flex-item(column, initial, initial);
-    @include position(absolute,15px,0,unset,unset);
     display: none;
-    width: 110px;
-    z-index: 1;
+    flex-direction: column;
+    @include position(absolute,15px,0,unset,unset);
     background-color: white;
     border: $border;
     box-shadow: $box-shadow;
-    
-    & .bg {
-        width: 500px;
-        height: 120px;
-        @include position(absolute,0,0,unset,unset);
-        z-index: -1;
-    }
-    & .edit-post-area {
-        border: $border;
-        @include position(absolute,0,119px,unset,unset);
-        box-shadow: $box-shadow;
-        padding: 8px;
-        background-color: white;
-        display: none;
-        
-    }
-    & textarea {
-        width: 325px;
-        height: 80px;
-        overflow: auto;
-    }
 }
 .edit-post, .remove-post, .remove-comment {
     padding: 5px;
@@ -90,6 +65,9 @@
     & img, video {
         max-width:100%;
         max-height:100%;
+    }
+    & .post-text {
+        outline: none;
     }
 }
 .post-user-action {

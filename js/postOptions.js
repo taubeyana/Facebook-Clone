@@ -2,7 +2,7 @@ class Options {
     constructor(parent) {
         this.parent = parent;
         this.div = $('<div></div>')
-        .click(() => this.optionsMenu.show());
+        .click(() => this.optionsMenu.css('display','flex'));
     }
     render() {
         this.removeBtn = $('.remove',this.div)
@@ -28,33 +28,18 @@ class PostOptions extends Options {
         .html(`
             <i class="fas fa-ellipsis-h"></i>
             <div class="post-options-menu options-menu">
-                <div class="bg"></div>
-                <div class="edit-post edit">
-                    <span> Edit Post </span>
-                    <div class="edit-post-area" >
-                        <textarea type="text" value=""></textarea>
-                        <button class="save-btn btn">Save</button>
-                    </div>
-                </div>
-                <div class="remove-post remove">
-                    <span> Remove Post </span>
-                </div>
-            </div>
-        </div>`);
+                <span class="edit-post edit"> Edit Post </span>
+                <span class="remove-post remove"> Remove Post </span>
+            </div>`);
         this.render();
-        this.editBtn = $('.edit-post',this.div);
-        this.saveBtn = $('.edit-post-area .save-btn', this.div);
-        this.editBtn.click(() => this.editPost());
+        this.editBtn = $('.edit-post',this.div)
+        .click(() => this.editPost());
+        this.postText = $('.post-text',this.parent)
+        .on('blur', () =>this.postText.attr('contenteditable',"false")) ;
     }
     editPost() {
-        this.textarea = $('.edit-post-area textarea',this.div);
-        this.postText = $('.post-text',this.parent);
-        this.textarea.text(this.postText.text());
-        this.textarea.parent().show();
-        this.saveBtn.on('click', () =>{
-            this.postText.text(this.textarea.val());
-            this.optionsMenu.hide();
-        });
+        this.postText.attr('contenteditable',"true").focus();
+        this.optionsMenu.hide();
     }
 }
 
