@@ -1,3 +1,6 @@
+let Post = require('../js/post');
+let service = require('../js/services');
+
 class Feed {
     constructor(mainEl,userid) {
         this.mainEl = mainEl;
@@ -5,7 +8,7 @@ class Feed {
     }
     
     fetchUser(userid) {
-        UsersService.getUser(userid)
+        service.usersService.getUser(userid)
         .then(user => {
             this.onUser(user)
         });
@@ -25,9 +28,9 @@ class Feed {
         this.postsArea = $('.posts-area',this.mainEl);
         this.postbtn.on('click',() => this.createPost());
     }
-
+    
     fetchPosts(user) {
-        PostsService.getUserPosts(user.id)
+        service.PostsService.getUserPosts(user.id)
         .then(posts => {
             posts.forEach(element => {
                 let post = new Post(this.user,element.body);
@@ -36,12 +39,12 @@ class Feed {
         });
     }
     fetchPostComments(postID) {
-        CommentsService.getComments(postID)
+        service.CommentsService.getComments(postID)
         .then(comments => log(comments));
     } 
     
     fetchServerPosts() {
-        PostsService.getServerPosts()
+        service.PostsService.getServerPosts()
         .then(posts => {
             posts.forEach(element => {
                 let post = new Post(this.user, element.message);
@@ -56,3 +59,5 @@ class Feed {
         this.postsArea.prepend(post.div);
     }
 }
+
+module.exports = Feed;

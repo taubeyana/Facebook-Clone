@@ -1,7 +1,13 @@
 require('jquery');
-let Feed = require('../js/feed');
-
-const {log} = console;
+require('feed');
+// require('user');
+// require('feed');
+// require('services');
+// require('post');
+// require('likes');
+// require('postOptions');
+// require('postComments');
+// require('main');
 
 new Feed($('.newsfeed'),5);
 

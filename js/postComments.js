@@ -1,3 +1,6 @@
+let CommentsOptions = require('../js/commentsOptions');
+let CommentLikes = require('../js/commentLikes');
+
 class PostComments {
     constructor(parent,user) {
         this.parent = parent;
@@ -5,16 +8,16 @@ class PostComments {
         this.div = $('<div></div>')
         .html(`
         <div class="post-comments">
-            <div class="post-comments-area">
-            </div>  
-            <div class="personal-comment">
-                <img src="img/userpic.jpg" alt="userpic">
-                <div class="personal-comment-input-and-icons">
-                    <input type="text" placeholder="Write a Comment..." class="user-comment-input">
-                    <i class="far fa-smile"></i>
-                    <i class="fas fa-camera"></i>
-                </div>
-            </div>
+        <div class="post-comments-area">
+        </div>  
+        <div class="personal-comment">
+        <img src="img/userpic.jpg" alt="userpic">
+        <div class="personal-comment-input-and-icons">
+        <input type="text" placeholder="Write a Comment..." class="user-comment-input">
+        <i class="far fa-smile"></i>
+        <i class="fas fa-camera"></i>
+        </div>
+        </div>
         </div>`)
         .appendTo(this.parent);
         this.userCommentInput = $('.user-comment-input', this.div)
@@ -28,15 +31,15 @@ class PostComments {
             .attr('class', 'comment')
             .html(`
             <div class="user-info">
-                <img src="img/userpic.jpg" alt="userpic">
+            <img src="img/userpic.jpg" alt="userpic">
             </div>
             <div class="user-comment">
-                <span class="color-blue">${this.user.fullName}</span>
-                <p class="user-comment-text">${this.userCommentInput.val()}</p>
-                <div class="comment-reactions">
-                    <span class="like color-blue">Like</span>
-                    <span class="color-blue">Reply</span>
-                </div>
+            <span class="color-blue">${this.user.fullName}</span>
+            <p class="user-comment-text">${this.userCommentInput.val()}</p>
+            <div class="comment-reactions">
+            <span class="like color-blue">Like</span>
+            <span class="color-blue">Reply</span>
+            </div>
             </div>
             `)
             .appendTo(this.commentsArea);
@@ -47,3 +50,4 @@ class PostComments {
         }
     }
 }
+module.exports = PostComments;

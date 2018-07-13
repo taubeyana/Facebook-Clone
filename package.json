@@ -1,0 +1,29 @@
+{
+  "name": "facebook-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taubeyana/Facebook-Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taubeyana/Facebook-Clone/issues"
+  },
+  "homepage": "https://github.com/taubeyana/Facebook-Clone#readme",
+  "dependencies": {
+    "css-loader": "^1.0.0",
+    "jquery": "^3.3.1",
+    "sass-loader": "^7.0.3",
+    "webpack-serve": "^2.0.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.16.0"
+  }
+}

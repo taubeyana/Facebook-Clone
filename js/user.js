@@ -4,3 +4,4 @@ class User {
         this.id = userObj.id;
     }
 }
+module.exports = User;
