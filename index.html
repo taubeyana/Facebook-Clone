@@ -1,9 +1,499 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Webpack App</title>
-  </head>
-  <body>
-  <script type="text/javascript" src="app.js"></script></body>
+<html lang="en-US">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/styles.css"> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/png" href="../img/love.png">
+	<title>Facebook</title>
+</head>
+<body>
+	<div class="bg"></div>
+	<header class="header">
+		<div class="header-center flex-item"> 
+			<div class="search-bar flex-item">
+				<a href="#"><i class="fab fa-facebook-square"></i></a>
+				<input type="text" name="search" id="search" placeholder="Search">
+				<button class="search-btn grey-hover"><i class="fas fa-search"></i></button>
+			</div>
+			<div class="header-right flex-item">
+				<a href="#">
+					<figure class="header-userinfo flex-item">
+						<img src="../img/userpic.jpg" alt="userpic" class="userpic">
+						<figcaption> Yana </figcaption>
+					</figure>
+				</a>
+				<a href="#"> Home </a>	
+				<a href="#"> Find Friends </a>
+				<ul class="header-icons flex-item">
+					<li><i class="fas fa-user-friends"></i></li>
+					<li><i class="fab fa-facebook-messenger"></i></li>
+					<li><i class="fas fa-bell"></i></li>
+					<li><i class="fas fa-question-circle"></i></li>
+					<li><i class="fas fa-caret-down"></i></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="container">
+		<div class="grid-left">
+			<nav class="navbar">
+				<a href="#" class="navbar-item">
+					<img src="../img/userpic.jpg" alt="userpic" class="userpic navbar-icon">
+					<span class="navbar-text"> Yana Taube </span>
+				</a>
+				<a href="#" class="navbar-item"> 
+					<img src="../img/newsfeed.png" alt="icon" class="navbar-icon"> 
+					<span class="navbar-text"> News Feed </span>
+				</a>
+				<a href="#" class="navbar-item"> 
+					<img src="../img/messenger.png" alt="icon" class="navbar-icon">
+					<span class="navbar-text"> Messanger </span>
+				</a>
+				<a href="#" class="navbar-item"> 
+					<img src="../img/market2.png" alt="icon" class="navbar-icon">
+					<span class="navbar-text"> Marketplace </span>
+				</a>
+				<div class="navbar-links shortcuts"> 
+					<h4 class="headers"> Shortcuts </h4>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  New Zealand - Jobs & Immigration Advice </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> IT World </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> Petri IT Knowledgebase (by Daniel Petri) </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> The Israeli Experts Forum for Cyber & Information Security </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> Yeladoctor </span>
+					</a>
+					<!-- <a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> אמסטרדם שלנו - Our Amsterdam </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> בדיחות של אנשי סיסטם - IT Jokes </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> הפורום ללימודי סיסטם, תקשורת, וירטואליזציה וסייבר, אבטחת מידע </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> ישראלים - ניו זילנד - מעבר והגירה </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> מאמאצחיק </span>
+					</a><a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> משרות הייטק ושיווק ללא ניסיון | Junior Jobs </span>
+					</a><a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> אמהות שוקעות </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> Network Administrators in Israel - מנהלי רשתות בישראל </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> Hi-Tech Junior Jobs Israel </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> Next IL </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> טיולון- מבלים עם הילדים ומדווחים מהשטח </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> מה עושים בשבת - אורית בלוך </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text"> פשפשוק-לתינוק ולילד </span>
+					</a> -->
+					
+				</div>
+				<div class="see-more">
+					<i class="fas fa-caret-down"></i>
+					<a href="#" class="color-blue">See More</a>	
+				</div>
+				<div class="navbar-links explore"> 
+					<h4 class="headers"> Explore </h4>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/saved.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  Saved </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  Groups </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/events.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  Events </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/pages.jpg" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  Pages </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  Friend Lists </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  On This Day </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  Pages Feed </span>
+					</a>
+					<a href="#" class="navbar-item"> 
+						<img src="../img/groups.png" alt="icon" class="navbar-icon">
+						<span class="navbar-text">  Find Freiends </span>
+					</a>
+				</div>
+				<div class="see-more">
+					<i class="fas fa-caret-down"></i>
+					<a href="#" class="color-blue">See More</a>	
+				</div>	
+				<div class="create">
+					<h4 class="headers">Create</h4>
+					<a href="#" class="color-blue">Ad</a>
+					<a href="#" class="color-blue">Page</a>
+					<a href="#" class="color-blue">Group</a>
+					<a href="#" class="color-blue">Event</a>
+				</div>	
+			</nav>
+		</div> 
+		<main class="newsfeed">
+			<div class="user-input template">
+				<div class="user-input-links-top"> 
+					<a href="#">
+						<i class="fas fa-pencil-alt"></i>
+						<span class="headers"> Make Post </span>
+						<div class="triangle-border"></div>
+						<div class="triangle"></div>
+					</a>
+					<a href="#" class="album">
+						<i class="fas fa-images"></i>
+						<span class="headers"> Photo/Video Album </span>
+					</a>
+					<a href="#" class="video">
+						<i class="fas fa-video"></i>
+						<span class="headers"> Live Video </span>
+					</a>
+					
+				</div>
+				<div class="user-input-text light-padded">
+					<img src="../img/userpic.jpg" alt="userpic">
+					<textarea type="text" placeholder="What's on your mind, Yana?" class="user-input-textarea"></textarea>
+					
+				</div>
+				<div class="user-input-links-bottom flex-item"> 
+					<button class="grey-hover btn">
+						<i class="fas fa-image"></i>
+						<span> Photo/Video </span>
+					</button>
+					<button class="grey-hover btn">
+						<i class="fas fa-smile"></i>
+						<span> Feeling/Activity </span>
+					</button>
+					<button class="grey-hover btn">
+						<i class="fas fa-ellipsis-h"></i>
+					</button>
+					
+				</div>
+				<div class="extend-user-input">
+					<button class="btn postbtn">Post</button>
+				</div>
+			</div>
+			<section class="posts-area">
+				<div class="post template">
+					<div class="post-header">
+						<figure class="publisher flex-item">
+							<img src="../img/geektime.png" alt="geektime">
+							<figcaption class="publisher-info"> 
+								<span class="publisher-name color-blue"> Geektime גיקטיים </span>
+								<span class="post-date"> 56 mins <span class="post-type-icon"><i class="fas fa-globe"></i></span> </span>
+							</figcaption>
+						</figure>
+						<div class="post-options">
+							<i class="fas fa-ellipsis-h"></i>
+							<div class="post-options-menu">
+								<span class="edit-post"> Edit Post </span>
+								<span class="remove-post"> Remove Post </span>
+							</div>
+						</div>
+					</div>
+					<p class="post-text heb light-padded"> החברה רותמת את כוחות העיבוד של המעבדים הגרפיים
+						למען הדאטהבייס 
+						ומצליחה לנתח כמות מידע גדולה פי 20, במהירות גבוהה פי 100
+					</p>
+					<a href="#">
+						<div class="post-preview heb"> 
+							<img src="../img/post.jpg" alt="">
+							<h3 class="post-preview-title light-padded">עליבאבא מובילה גיוס של 26.4 מיליון דולר ב-SQream הישראלית</h3>
+							<p class="light-padded"> במקום לנתח מאגרי מידע עם מעבדים יקרים ועשרות מחשבים,
+								החברה הזו משתמשת בכרטיסים גראפיים כדי לעבד הרבה יותר מידע, בפחות כסף וזמן
+							</p>
+							<span class="post-source light-padded"> GEEKTIME.CO.IL </span>
+						</div>
+					</a>
+					<div class="public-post-reactions">
+						<div class="public-post-likes"> 
+							<i class="far fa-thumbs-up"></i>
+							<span class="likes-num"> 17 </span>
+						</div>
+						<div class="public-post-comments">
+							<span> 3 Comments </span>
+						</div>
+					</div>
+					<div class="post-user-action">
+						<button class="like white-btn btn">
+							<i class="far fa-thumbs-up"></i>
+							<span> Like </span>
+						</button>
+						<button class="white-btn btn">
+							<i class="far fa-comment"></i>
+							<span> Comment </span>
+						</button>
+						<button class="white-btn btn">
+							<i class="far fa-share-square"></i>
+							<span> Share </span>
+						</button>
+					</div>
+				</div>
+				<div class="post template">
+					<div class="post-header">
+						<figure class="publisher flex-item">
+							<img src="../img/failarmy.jpg" alt="failarmy">
+							<figcaption class="publisher-info"> 
+								<span class="publisher-name color-blue"> FailArmy </span>
+								<span class="post-date"> 13 mins <span class="post-type-icon"><i class="fas fa-globe"></span></i> </span>
+							</figcaption>
+						</figure>
+						<div class="post-options">
+							<i class="fas fa-ellipsis-h"></i>
+							<div class="post-options-menu">
+								<span class="edit-post"> Edit Post </span>
+								<span class="remove-post"> Remove Post </span>
+							</div>
+						</div>
+					</div>
+					<p class="post-text light-padded">
+						Who doesn't love a good goat scream?
+					</p>
+					<a href="#">
+						<div class="post-preview">
+							<video src="video/goats.mp4" autoplay muted></video>
+							<div class="public-post-follow light-padded">
+								<div class="info">
+									<h3>Daily Fails</h3>
+									<span class="descr-text">Screaming Is Optional</span>
+								</div>
+								<button class="follow-btn btn">
+									<i class="fas fa-rss"></i>
+									<span>Follow</span>
+								</button>
+							</div>
+						</div>
+					</a>
+					<div class="post-comments-body">
+						<span class="public-post-views descr-text"> 100K Views </span>
+						<div class="public-post-comments">
+							<span> 3 Comments </span>
+						</div>
+					</div>
+					<div class="post-user-action">
+						<button class="download-btn"><img src="../img/download.png" alt=""></button>
+						<button class="like white-btn btn">
+							<i class="far fa-thumbs-up"></i>
+							<span> Like </span>
+						</button>
+						<button class="white-btn btn">
+							<i class="far fa-comment"></i>
+							<span> Comment </span>
+						</button>
+						<button class="white-btn btn">
+							<i class="far fa-share-square"></i>
+							<span> Share </span>
+						</button>
+					</div>
+				</div>
+				<div class="post template">
+					<div class="post-header">
+						<figure class="publisher flex-item">
+							<img src="../img/puppy.jpg">
+							<figcaption class="publisher-info"> 
+								<span class="publisher-name color-blue">John Doe</span>
+								<div class="post-info">
+									<span class="post-date">56 min</span>
+									<span class="post-type-icon"><i class="fas fa-user-friends"></i></span>
+								</div>
+							</figcaption>
+						</figure>
+						<div class="post-options">
+							<i class="fas fa-ellipsis-h"></i>
+							<div class="post-options-menu">
+								<div class="edit-post">
+									<span> Edit Post </span>
+								</div>
+								<div class="remove-post">
+									<span> Remove Post </span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p class="post-text light-padded heb" contenteditable="true" spellcheck="false">
+						תודה רבה לכל המברכים ותודה מיוחדת לאשתי היקרה!
+					</p>
+					<div class="post-user-action">
+						<button class="like white-btn btn">
+							<i class="far fa-thumbs-up"></i>
+							<span> Like </span>
+						</button>
+						<button class="white-btn btn">
+							<i class="far fa-comment"></i>
+							<span> Comment </span>
+						</button>
+						<button class="white-btn btn" style="display: none;">  <!--change this!!!-->
+							<i class="far fa-share-square"></i>
+							<span> Share </span>
+						</button>
+					</div>
+				</div>
+				<div class="post-likes likes">
+					<img src="../img/like.png" alt="">
+					<span class="likes-num">3</span>
+				</div>
+				<div class="post-comments">
+					<div class="post-comments-area">
+						<div class="comment">
+							<div class="user-info">
+								<img src="../img/userpic.jpg" alt="userpic">
+							</div>
+							<div class="user-comment">
+								<span class="color-blue">Chelsey Dietrich</span>
+								<p class="user-comment-text">1</p>
+								<div class="comment-reactions">
+									<span class="like color-blue">Like</span>
+									<span class="color-blue">Reply</span>
+								</div>
+								<div class="comment-options">
+									<i class="fas fa-ellipsis-h"></i>
+									<div class="comment-options-menu">
+										<span class="remove-comment remove-post"> Remove </span>
+									</div>
+								</div>
+								<div class="comment-likes likes" style="display: block;">
+									<div class="likes">
+										<img src="../img/like.png" alt="">     
+										<span class="likes-num">1</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="personal-comment">
+						<img src="../img/userpic.jpg" alt="userpic">
+						<div class="personal-comment-input-and-icons">
+							<input type="text" placeholder="Write a Comment..." class="user-comment-input">
+							<i class="far fa-smile"></i>
+							<i class="fas fa-camera"></i>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<aside class="right">
+			<section class="stories template">
+				<div class="stories-header">
+					<h4 class="headers"> Stories </h4>
+					<a href="#">
+						<i class="fas fa-ellipsis-h"></i>
+					</a>
+				</div>
+				<div  class="stories-info">
+					<i class="fas fa-plus grey-hover"></i>
+					<div class="story-info" >
+						<a href="#"><h4 class="stories-info-header color-blue">Add to Your Story</h4></a>
+						<span class="stories-info-descr descr-text"> Share a photo,video or write something	</span>
+					</div>
+					
+				</div>	
+				
+			</section>
+			<section class="suggested template">
+				<div class="suggested-header">	
+					<h4 class="headers"> Suggested Pages </h4>
+					<a href="#"class="color-blue"> See All </a>
+				</div>
+				
+				<div class="suggested-body">
+					<div class="sug-page-rating">
+						<span> 5.0 </span>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<i class="fas fa-star"></i>
+						<span> Open Now </span> 
+					</div>
+					
+					<div class="sug-page-info">
+						<img src="../img/zoo1.jpg" alt="zoo">
+						<div class="page-name">
+							<h4 class="color-blue">Zoo center - זו סנטר הוד השרון</h4>
+							<span class="sug-page-info-descr descr-text"> Pet Store </span>
+							<span class="sug-page-info-descr descr-text"> Pet Service </span> 
+						</div>
+						
+					</div>
+					<img src="../img/zoo2.jpg" alt="zoo">
+					<button class="like white-btn btn">
+						<i class="far fa-thumbs-up"></i>
+						<span> Like Page </span>
+					</button>
+				</div>
+			</section>
+			<section class="ads template">
+				<div class="ads-header">
+					<h4 class="headers"> Sponsored </h4>
+					<a href="#"class="color-blue"> Create Ad </a>
+				</div>
+				<div class="ads-body light-padded">
+					<img src="../img/sponsored.jpg" alt="zoo">
+					<h4 class="heb color-blue" >אנחנו מחפשים את המתקדמים ביותר >> </h4>
+					<span class="color-blue">www.dialog.co.il</span>
+					<p class="heb" >	הייטקיסטים, בואו להקדים את זמנכם. הגישו מועמדות למגוון משרות מעולות בחברות ההייטק והסטרטאפים</p>
+				</div>
+			</section>
+			<div class="lang template light-padded">
+				<div>
+					<span class="descr-text">English (US)</span>
+					<span class="color-blue"> עברית</span>
+					<span class="color-blue"> Русский</span>
+					<span class="color-blue"> العربية</span>
+					<span class="color-blue">Español</span>
+				</div>
+				<i class="fas fa-plus grey-hover"></i>
+			</div>
+		</aside>
+	</div>
+<script type="text/javascript" src="app.js"></script></body>
 </html>

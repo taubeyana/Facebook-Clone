@@ -90,18 +90,22 @@
 /*!****************************!*\
   !*** ./js/commentLikes.js ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: CommentLikes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let Likes = __webpack_require__(/*! ../js/likes */ "./js/likes.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentLikes", function() { return CommentLikes; });
+/* harmony import */ var _js_likes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/likes */ "./js/likes.js");
 
-class CommentLikes extends Likes {
+
+class CommentLikes extends _js_likes__WEBPACK_IMPORTED_MODULE_0__["Likes"] {
     constructor(parent) {
         super(parent);
         this.div.attr('class', 'comment-likes likes');
         this.div.html(`
         <div class="likes">
-        <img src="img/like.png" alt="">     
+        <img src="../img/like.png" alt="">     
         <span class="likes-num"></span>
         </div>`)
         .appendTo(this.parent);
@@ -111,7 +115,6 @@ class CommentLikes extends Likes {
         this.reactionsCounter();
     }
 }
-module.exports = CommentLikes;
 
 /***/ }),
 
@@ -119,12 +122,16 @@ module.exports = CommentLikes;
 /*!*******************************!*\
   !*** ./js/commentsOptions.js ***!
   \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: CommentsOptions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let Options = __webpack_require__(/*! ../js/options */ "./js/options.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentsOptions", function() { return CommentsOptions; });
+/* harmony import */ var _js_options__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/options */ "./js/options.js");
 
-class CommentsOptions extends Options {
+
+class CommentsOptions extends _js_options__WEBPACK_IMPORTED_MODULE_0__["Options"] {
     constructor(parent) {
         super(parent);
         this.div
@@ -138,7 +145,6 @@ class CommentsOptions extends Options {
         this.render();
     }
 }
-module.exports = CommentsOptions;
 
 /***/ }),
 
@@ -146,11 +152,19 @@ module.exports = CommentsOptions;
 /*!********************!*\
   !*** ./js/feed.js ***!
   \********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: Feed */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let Post = __webpack_require__(/*! ../js/post */ "./js/post.js");
-let service = __webpack_require__(/*! ../js/services */ "./js/services.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Feed", function() { return Feed; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_post__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/post */ "./js/post.js");
+/* harmony import */ var _js_services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/services */ "./js/services.js");
+
+
+
 
 class Feed {
     constructor(mainEl,userid) {
@@ -159,7 +173,7 @@ class Feed {
     }
     
     fetchUser(userid) {
-        service.usersService.getUser(userid)
+        _js_services__WEBPACK_IMPORTED_MODULE_2__["UsersService"].getUser(userid)
         .then(user => {
             this.onUser(user)
         });
@@ -173,32 +187,32 @@ class Feed {
         
     }
     render() {
-        this.postbtn = $('.postbtn',this.mainEl);
-        this.input = $('.user-input textarea',this.mainEl);
+        this.postbtn = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.postbtn',this.mainEl);
+        this.input = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.user-input textarea',this.mainEl);
         this.input.attr('placeholder', `What's on your mind, ${this.user.fullName}`);
-        this.postsArea = $('.posts-area',this.mainEl);
+        this.postsArea = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.posts-area',this.mainEl);
         this.postbtn.on('click',() => this.createPost());
     }
     
     fetchPosts(user) {
-        service.PostsService.getUserPosts(user.id)
+        _js_services__WEBPACK_IMPORTED_MODULE_2__["PostsService"].getUserPosts(user.id)
         .then(posts => {
             posts.forEach(element => {
-                let post = new Post(this.user,element.body);
+                let post = new _js_post__WEBPACK_IMPORTED_MODULE_1__["Post"](this.user,element.body);
                 this.postsArea.prepend(post.div);
             });
         });
     }
     fetchPostComments(postID) {
-        service.CommentsService.getComments(postID)
+        _js_services__WEBPACK_IMPORTED_MODULE_2__["CommentsService"].getComments(postID)
         .then(comments => log(comments));
     } 
     
     fetchServerPosts() {
-        service.PostsService.getServerPosts()
+        _js_services__WEBPACK_IMPORTED_MODULE_2__["PostsService"].getServerPosts()
         .then(posts => {
             posts.forEach(element => {
-                let post = new Post(this.user, element.message);
+                let post = new _js_post__WEBPACK_IMPORTED_MODULE_1__["Post"](this.user, element.message);
                 this.postsArea.prepend(post.div);
             });
         });
@@ -206,12 +220,12 @@ class Feed {
     createPost() {
         let userInput = this.input.val();
         this.input.val('');
-        let post = new Post(this.user, userInput);
+        let post = new _js_post__WEBPACK_IMPORTED_MODULE_1__["Post"](this.user, userInput);
         this.postsArea.prepend(post.div);
     }
 }
 
-module.exports = Feed;
+// module.exports = Feed;
 
 /***/ }),
 
@@ -219,29 +233,35 @@ module.exports = Feed;
 /*!*********************!*\
   !*** ./js/likes.js ***!
   \*********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: Likes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Likes", function() { return Likes; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
 
 class Likes {
     constructor(parent) {
         this.parent = parent;
-        this.likeBtn = $('.like',this.parent).click(() => this.displayLikes());
-        this.div = $('<div></div>');
+        this.likeBtn = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.like',this.parent).click(() => this.displayLikes());
+        this.div = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div></div>');
         this.likes = 0;
         
     }
     displayLikes() {
-        this.reactions = $('.likes',this.div).slideDown();
+        this.reactions = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.likes',this.div).slideDown();
         this.reactionsCounter();
     }
     
     reactionsCounter() {
         this.likes++;
-        this.likesNum = $('.likes-num',this.div)
+        this.likesNum = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.likes-num',this.div)
         .text(this.likes);
     }
 }
-module.exports = Likes;
 
 /***/ }),
 
@@ -249,21 +269,26 @@ module.exports = Likes;
 /*!********************!*\
   !*** ./js/main.js ***!
   \********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-const $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-let Feed = __webpack_require__(/*! ../js/feed */ "./js/feed.js");
-__webpack_require__(/*! ../scss/styles.scss */ "./scss/styles.scss");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_feed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/feed */ "./js/feed.js");
+/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/styles.scss */ "./scss/styles.scss");
+/* harmony import */ var _scss_styles_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scss_styles_scss__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 
 const {log} = console;
 
-new Feed($('.newsfeed'),5);
+new _js_feed__WEBPACK_IMPORTED_MODULE_1__["Feed"](jquery__WEBPACK_IMPORTED_MODULE_0___default()('.newsfeed'),5);
 
-let body = $('body');
-let extendedInput = $('.extend-user-input');
+let body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
+let extendedInput = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.extend-user-input');
 
 body.on('click',(event) => {
     if (event.target.className === 'user-input-textarea') {
@@ -283,19 +308,26 @@ body.on('click',(event) => {
 /*!***********************!*\
   !*** ./js/options.js ***!
   \***********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: Options */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Options", function() { return Options; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
 
 class Options {
     constructor(parent) {
         this.parent = parent;
-        this.div = $('<div></div>')
+        this.div = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div></div>')
         .click(() => this.optionsMenu.css('display','flex'));
     }
     render() {
-        this.removeBtn = $('.remove',this.div)
+        this.removeBtn = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.remove',this.div)
         .click(() => this.removePost());
-        this.optionsMenu = $('.options-menu',this.div)
+        this.optionsMenu = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.options-menu',this.div)
         .on('mouseleave', () => this.optionsMenu.hide());
     }
     removePost() {
@@ -307,7 +339,6 @@ class Options {
         }
     }
 }
-module.exports = Options;
 
 /***/ }),
 
@@ -315,12 +346,21 @@ module.exports = Options;
 /*!********************!*\
   !*** ./js/post.js ***!
   \********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: Post */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let PostOptions = __webpack_require__(/*! ../js/postOptions */ "./js/postOptions.js");
-let PostLikes = __webpack_require__(/*! ../js/postLikes */ "./js/postLikes.js");
-let PostComments = __webpack_require__(/*! ../js/postComments */ "./js/postComments.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Post", function() { return Post; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_postOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/postOptions */ "./js/postOptions.js");
+/* harmony import */ var _js_postLikes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/postLikes */ "./js/postLikes.js");
+/* harmony import */ var _js_postComments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../js/postComments */ "./js/postComments.js");
+
+
+
+
 
 class Post {
     constructor(user, userInput, lang = '') {
@@ -328,12 +368,12 @@ class Post {
         this.userInput = userInput;
         this.lang = lang;
         this.date = new Date;
-        this.div = $('<div></div>')
+        this.div = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div></div>')
         .html(`
         <div class="post template">
         <div class="post-header">
         <figure class="publisher flex-item">
-        <img src="img/puppy.jpg">  
+        <img src="../img/puppy.jpg">  
         <figcaption class="publisher-info"> 
         <span class="publisher-name color-blue">${this.user.fullName}</span>
         <div class="post-info">
@@ -359,14 +399,13 @@ class Post {
         </button>
         </div>
         </div>`);
-        this.header = $('.post-header',this.div);
-        this.options = new PostOptions(this.div);
+        this.header = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.post-header',this.div);
+        this.options = new _js_postOptions__WEBPACK_IMPORTED_MODULE_1__["PostOptions"](this.div);
         this.header.append(this.options.div);
-        this.postLikes = new PostLikes(this.div);
-        this.postComments = new PostComments(this.div,this.user);
+        this.postLikes = new _js_postLikes__WEBPACK_IMPORTED_MODULE_2__["PostLikes"](this.div);
+        this.postComments = new _js_postComments__WEBPACK_IMPORTED_MODULE_3__["PostComments"](this.div,this.user);
     }
 }
-module.exports = Post;
 
 /***/ }),
 
@@ -374,23 +413,31 @@ module.exports = Post;
 /*!****************************!*\
   !*** ./js/postComments.js ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: PostComments */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let CommentsOptions = __webpack_require__(/*! ../js/commentsOptions */ "./js/commentsOptions.js");
-let CommentLikes = __webpack_require__(/*! ../js/commentLikes */ "./js/commentLikes.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostComments", function() { return PostComments; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _js_commentsOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/commentsOptions */ "./js/commentsOptions.js");
+/* harmony import */ var _js_commentLikes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/commentLikes */ "./js/commentLikes.js");
+
+
+
 
 class PostComments {
     constructor(parent,user) {
         this.parent = parent;
         this.user = user;
-        this.div = $('<div></div>')
+        this.div = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div></div>')
         .html(`
         <div class="post-comments">
         <div class="post-comments-area">
         </div>  
         <div class="personal-comment">
-        <img src="img/userpic.jpg" alt="userpic">
+        <img src="../img/userpic.jpg" alt="userpic">
         <div class="personal-comment-input-and-icons">
         <input type="text" placeholder="Write a Comment..." class="user-comment-input">
         <i class="far fa-smile"></i>
@@ -399,18 +446,18 @@ class PostComments {
         </div>
         </div>`)
         .appendTo(this.parent);
-        this.userCommentInput = $('.user-comment-input', this.div)
+        this.userCommentInput = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.user-comment-input', this.div)
         .on('keypress', (event) => this.addComment(event));
         
     }
     addComment(event) {
         if (event.keyCode === 13) {
-            this.commentsArea = $('.post-comments-area',this.div);
-            this.comment = $('<div></div>')
+            this.commentsArea = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.post-comments-area',this.div);
+            this.comment = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div></div>')
             .attr('class', 'comment')
             .html(`
             <div class="user-info">
-            <img src="img/userpic.jpg" alt="userpic">
+            <img src="../img/userpic.jpg" alt="userpic">
             </div>
             <div class="user-comment">
             <span class="color-blue">${this.user.fullName}</span>
@@ -422,14 +469,13 @@ class PostComments {
             </div>
             `)
             .appendTo(this.commentsArea);
-            this.userComment = $('.user-comment',this.comment);
-            new CommentLikes(this.userComment);
-            new CommentsOptions(this.userComment);
+            this.userComment = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.user-comment',this.comment);
+            new _js_commentLikes__WEBPACK_IMPORTED_MODULE_2__["CommentLikes"](this.userComment);
+            new _js_commentsOptions__WEBPACK_IMPORTED_MODULE_1__["CommentsOptions"](this.userComment);
             this.userCommentInput.val('');
         }
     }
 }
-module.exports = PostComments;
 
 /***/ }),
 
@@ -437,24 +483,27 @@ module.exports = PostComments;
 /*!*************************!*\
   !*** ./js/postLikes.js ***!
   \*************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: PostLikes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let Likes = __webpack_require__(/*! ../js/likes */ "./js/likes.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostLikes", function() { return PostLikes; });
+/* harmony import */ var _js_likes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/likes */ "./js/likes.js");
 
-class PostLikes extends Likes {
+
+class PostLikes extends _js_likes__WEBPACK_IMPORTED_MODULE_0__["Likes"] {
     constructor(parent) {
         super(parent);
         this.div.html(`
         <div class="post-likes likes">
-        <img src="img/like.png" alt="">
+        <img src="../img/like.png" alt="">
         <span class="likes-num"></span>
         </div>`)
         .appendTo(this.parent);
     }
 }
 
-module.exports = PostLikes;
 
 /***/ }),
 
@@ -462,12 +511,19 @@ module.exports = PostLikes;
 /*!***************************!*\
   !*** ./js/postOptions.js ***!
   \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: PostOptions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let Options = __webpack_require__(/*! ../js/options */ "./js/options.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostOptions", function() { return PostOptions; });
+/* harmony import */ var _js_options__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/options */ "./js/options.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
-class PostOptions extends Options {
+
+
+class PostOptions extends _js_options__WEBPACK_IMPORTED_MODULE_0__["Options"] {
     constructor(parent) {
         super(parent);
         this.div
@@ -479,9 +535,9 @@ class PostOptions extends Options {
         <span class="remove-post remove"> Remove Post </span>
         </div>`);
         this.render();
-        this.editBtn = $('.edit-post',this.div)
+        this.editBtn = jquery__WEBPACK_IMPORTED_MODULE_1___default()('.edit-post',this.div)
         .click(() => this.editPost());
-        this.postText = $('.post-text',this.parent)
+        this.postText = jquery__WEBPACK_IMPORTED_MODULE_1___default()('.post-text',this.parent)
         .on('blur', () =>this.postText.attr('contenteditable',"false")) ;
     }
     editPost() {
@@ -490,7 +546,6 @@ class PostOptions extends Options {
     }
 }
 
-module.exports = PostOptions;
 
 /***/ }),
 
@@ -498,30 +553,36 @@ module.exports = PostOptions;
 /*!************************!*\
   !*** ./js/services.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: UsersService, PostsService, CommentsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-let User = __webpack_require__(/*! ../js/user */ "./js/user.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsersService", function() { return UsersService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostsService", function() { return PostsService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CommentsService", function() { return CommentsService; });
+/* harmony import */ var _js_user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/user */ "./js/user.js");
+
 
 // Helpers for short selections and debug
 const {log} = console;
 
 
-module.exports = {
+
 
     // Fetching users by id from jsonplaceholder server
     
-    usersService: class UsersService {
+    class UsersService {
         static getUser(id) {
             return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             .then(res => res.json())
-            .then(user => new User(user));
+            .then(user => new _js_user__WEBPACK_IMPORTED_MODULE_0__["User"](user));
         }
-    },
+    }
     
     // Fetching posts from server
     
-    PostsService: class PostsService {
+    class PostsService {
         static getUserPosts(user) {
             return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user}`)
             .then(res => res.json())
@@ -540,9 +601,9 @@ module.exports = {
                 return JSON.parse(localStorage.getItem('posts')).posts;
             });
         }
-    },
+    }
     
-    commentsService: class CommentsService {
+    class CommentsService {
         static getComments(postId) {
             return fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
             .then(data => data.json())
@@ -550,7 +611,6 @@ module.exports = {
         }
     }
     
-}
 
 /***/ }),
 
@@ -558,16 +618,18 @@ module.exports = {
 /*!********************!*\
   !*** ./js/user.js ***!
   \********************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
 class User {
     constructor(userObj) {
         this.fullName = userObj.name;
         this.id = userObj.id;
     }
 }
-module.exports = User;
 
 /***/ }),
 
@@ -583,7 +645,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box; }\n\nul {\n  list-style: none; }\n\na {\n  color: inherit;\n  text-decoration: inherit; }\n\ninput, textarea {\n  border: none;\n  outline: none; }\n\nbody {\n  background-color: red;\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  color: #5F636A; }\n\n.grey-hover:hover {\n  background-color: #E9EBEE;\n  cursor: pointer; }\n\n.color-blue {\n  color: #365899;\n  cursor: pointer; }\n  .color-blue:hover {\n    text-decoration: underline; }\n\n.flex-item {\n  display: flex;\n  align-items: center; }\n\n.container {\n  max-width: 1020px;\n  top: 52px;\n  position: relative;\n  margin: 0 auto;\n  display: grid;\n  grid-template-columns: 150px 53% 30%;\n  grid-gap: 10px; }\n\n.newsfeed {\n  grid-column: 2/3; }\n\n.grid-left {\n  position: fixed; }\n\n.right {\n  grid-column: 3/4; }\n\n.heb {\n  direction: rtl; }\n\n.headers {\n  font-size: 13px;\n  font-weight: 600;\n  padding: 5px; }\n\n.bg {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n.header {\n  height: 42px;\n  width: 100%;\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  position: fixed;\n  z-index: 1;\n  border-bottom: 1px solid #29487D;\n  background-color: #4267B2;\n  color: white; }\n\n.header-center {\n  width: 1020px;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center; }\n\n.search-bar > input {\n  width: 400px;\n  height: 22px;\n  padding: 8px; }\n\n.fa-facebook-square {\n  font-size: 25px;\n  margin-right: 7px; }\n\n.search-btn {\n  border: 0;\n  padding: 0;\n  border: none;\n  font-size: 14px;\n  background-color: #F6F7F9;\n  color: #4E5665;\n  padding: 3px 15px;\n  cursor: pointer; }\n\n.header-right > a {\n  font-weight: 700;\n  font-size: 12px;\n  padding: 4px 10px; }\n  .header-right > a:hover {\n    background-color: #3B5DA0; }\n  .header-right > a:nth-child(2) {\n    border-left: 1px solid #3B5CA0;\n    border-right: 1px solid #3B5CA0; }\n\n.header-icons {\n  color: #1A2946;\n  font-size: 18px;\n  cursor: pointer; }\n\n.header-icons li {\n  padding: 5px; }\n  .header-icons li:hover {\n    color: black; }\n  .header-icons li:nth-child(4)::before, .header-icons li:first-child::before {\n    content: \"|\";\n    color: #3B5CA0;\n    font-size: 24px;\n    margin-right: 8px; }\n\n.userpic {\n  margin-right: 8px;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  border: 1px solid #D9D9D9; }\n\n.navbar {\n  width: 150px;\n  grid-column: 1/2;\n  z-index: 1;\n  font-size: 12px;\n  margin-top: 10px; }\n\n.navbar-item {\n  grid-template-columns: 20% 80%;\n  display: grid;\n  align-items: center;\n  padding: 3px; }\n  .navbar-item:hover {\n    background-color: #F6F7F9;\n    border: 1px solid #DDDFE2;\n    margin: -1px; }\n\n.navbar-icon {\n  width: 23px;\n  height: 23px;\n  grid-column: 1/2; }\n\n.navbar-text {\n  grid-column: 2/3;\n  display: inline-block;\n  overflow: hidden;\n  /* To truncate string use theese 3 prop*/\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n\n.navbar-links {\n  margin-top: 15px; }\n\n.create a::after {\n  content: '\\B7';\n  padding-left: 3px; }\n\n.create a:first-of-type {\n  margin-left: 5px; }\n\n.see-more {\n  margin: 12px 4px;\n  padding: 3px;\n  font-size: 13px;\n  color: #365899; }\n  .see-more .fa-caret-down {\n    color: #90949C; }\n  .see-more a {\n    margin-left: 5px; }\n\n.stories-header {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 10px 0 10px; }\n\n.story-info {\n  padding: 10px; }\n\n.fa-plus {\n  width: 50px;\n  height: 50px;\n  padding: 18px;\n  border: 1px solid #D9D9D9;\n  border-radius: 50%;\n  background-color: #F5F6F7;\n  color: #187BFB; }\n\n.stories-info {\n  display: flex;\n  flex-direction: initial;\n  justify-content: initial;\n  align-items: center;\n  padding: 0px 12px 12px 12px; }\n\n.descr-text {\n  font-size: 13px;\n  color: #AFB2B8; }\n\n.lang {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 13px; }\n  .lang .fa-plus {\n    color: inherit;\n    border-radius: 10px;\n    padding: 11px;\n    width: 35px;\n    height: 35px; }\n  .lang span {\n    line-height: 1.4; }\n    .lang span::after {\n      content: '\\B7';\n      padding: 2px; }\n\n.lang span:last-of-type::after,\n.create a:last-of-type::after {\n  content: none; }\n\n.suggested-body {\n  border: 1px solid #D9D9D9;\n  margin: 10px; }\n\n.suggested-header,\n.ads-header {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px 0 12px; }\n\n.sug-page-rating {\n  padding: 8px;\n  border-bottom: 1px solid #D9D9D9;\n  color: #4267B2; }\n\n.fa-star {\n  font-size: 10px; }\n\n.sug-page-info {\n  display: grid;\n  grid-template-columns: 20% 80%;\n  grid-gap: 5px;\n  padding: 8px; }\n\n.suggested .like {\n  display: flex;\n  flex-direction: initial;\n  justify-content: center;\n  align-items: initial; }\n\n.suggested img {\n  max-width: 100%;\n  border-top: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n\n.ads img {\n  max-width: 100%;\n  border-top: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n\n.ads span {\n  display: inline-block;\n  margin-bottom: 10px; }\n\n.ads h4 {\n  padding: 5px; }\n\n.ads p {\n  font-size: 13px; }\n\n.template {\n  background-color: white;\n  margin-top: 12px;\n  border: 1px solid #D9D9D9;\n  border-radius: 5px;\n  color: #5F636A; }\n\n.user-input {\n  justify-content: space-between; }\n\n.user-input-links-top {\n  background-color: #F6F7F9;\n  border-bottom: 1px solid #D9D9D9;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  display: flex;\n  flex-direction: initial;\n  justify-content: initial;\n  align-items: center; }\n  .user-input-links-top a {\n    padding: 9px 10px; }\n    .user-input-links-top a:first-of-type {\n      position: relative; }\n  .user-input-links-top .album {\n    border-left: 1px solid #D9D9D9;\n    border-right: 1px solid #D9D9D9; }\n  .user-input-links-top .fas {\n    margin-right: 4px; }\n\n.album span,\n.video span {\n  color: #365899; }\n\n.triangle {\n  border: 8px solid transparent;\n  border-top: none;\n  width: 0;\n  height: 0;\n  border-bottom: 8px solid white;\n  position: absolute;\n  top: unset;\n  right: unset;\n  bottom: -1px;\n  left: 56px; }\n\n.triangle-border {\n  border: 9px solid transparent;\n  border-top: none;\n  width: 0;\n  height: 0;\n  border-bottom: 9px solid #D9D9D9;\n  position: absolute;\n  top: unset;\n  right: unset;\n  bottom: -1px;\n  left: 55px; }\n\n.user-input-text {\n  display: flex; }\n  .user-input-text textarea {\n    width: 100%;\n    padding-top: 25px;\n    height: inherit;\n    resize: none; }\n  .user-input-text img {\n    margin: 10px;\n    width: 45px;\n    height: 45px;\n    border-radius: 50%;\n    border: 1px solid #D9D9D9; }\n\n.user-input-links-bottom {\n  border-top: 1px solid #D9D9D9;\n  padding: 3px;\n  margin: auto 10px; }\n  .user-input-links-bottom .btn {\n    border: 0;\n    padding: 0;\n    border: none;\n    font-size: 14px;\n    background-color: #F6F7F9;\n    color: #4E5665;\n    padding: 8px 16px;\n    cursor: pointer;\n    padding: 8px 16px;\n    margin: 5px;\n    border-radius: 14px; }\n    .user-input-links-bottom .btn:hover {\n      background-color: #E9EBEE; }\n  .user-input-links-bottom .fa-image {\n    color: #94CD54; }\n  .user-input-links-bottom .fa-smile {\n    color: #F7C43A; }\n  .user-input-links-bottom .fa-ellipsis-h {\n    color: #A6ABB4; }\n\n.extend-user-input {\n  background-color: #E9EBEE;\n  padding: 10px;\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 5px;\n  border-top: 1px solid #D9D9D9;\n  display: none; }\n  .extend-user-input button {\n    width: 100%;\n    color: white;\n    background-color: #9CB4D8;\n    font-weight: bold;\n    padding: 8px; }\n    .extend-user-input button:hover {\n      background-color: #4267B2; }\n\n.btn {\n  border: 0;\n  padding: 0;\n  border: none;\n  font-size: 14px;\n  background-color: #F6F7F9;\n  color: #4E5665;\n  padding: 5px 13px;\n  cursor: pointer; }\n  .btn.save-btn {\n    border: 1px solid #D9D9D9; }\n  .btn.white-btn {\n    margin: 0 auto;\n    border: 0;\n    padding: 0;\n    border: none;\n    font-size: 14px;\n    background-color: white;\n    color: #4E5665;\n    padding: 12px;\n    cursor: pointer; }\n    .btn.white-btn:hover {\n      background-color: #E9EBEE; }\n\n.post-header {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: initial; }\n\n.publisher-name {\n  font-size: 15px;\n  font-weight: 600; }\n\n.publisher img {\n  width: 45px;\n  height: 45px;\n  border-radius: 50%;\n  border: 1px solid #D9D9D9;\n  border: 1px solid #D9D9D9; }\n\n.publisher-info {\n  display: flex;\n  flex-direction: column;\n  justify-content: initial;\n  align-items: initial;\n  padding: 6px 10px; }\n\n.post-type-icon::before {\n  content: '\\B7';\n  padding: 8px 5px 0 4px; }\n\n.post-date {\n  display: inline-block;\n  font-size: 12px;\n  padding: 3px 0; }\n\n.post-header {\n  position: relative; }\n\n.post-options-menu {\n  display: none;\n  flex-direction: column;\n  position: absolute;\n  top: 15px;\n  right: 0;\n  bottom: unset;\n  left: unset;\n  background-color: white;\n  border: 1px solid #D9D9D9;\n  box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.75); }\n\n.edit-post, .remove-post, .remove-comment {\n  padding: 5px;\n  color: black;\n  cursor: pointer; }\n  .edit-post:hover, .remove-post:hover, .remove-comment:hover {\n    color: white;\n    background-color: #365899; }\n\n.post {\n  padding-top: 10px;\n  padding-left: 10px;\n  padding-right: 10px; }\n  .post img, .post video {\n    max-width: 100%;\n    max-height: 100%; }\n  .post .post-text {\n    outline: none; }\n\n.post-user-action {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-around;\n  align-items: center;\n  position: relative;\n  border-top: 1px solid #D9D9D9; }\n\n.light-padded {\n  padding: 7px; }\n\n.post-likes {\n  display: none;\n  padding: 8px;\n  background-color: #F2F3F5;\n  border-left: 1px solid #D9D9D9;\n  border-right: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n  .post-likes img {\n    width: 22px;\n    height: 22px; }\n\n.post-comments {\n  padding: 8px;\n  background-color: #F2F3F5;\n  border-left: 1px solid #D9D9D9;\n  border-right: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n  .post-comments .comment {\n    margin-bottom: 10px;\n    max-width: 95%; }\n    .post-comments .comment .comment-reactions {\n      bottom: -15px;\n      position: absolute;\n      font-size: 12px; }\n      .post-comments .comment .comment-reactions .like::after {\n        content: '\\B7';\n        padding-left: 4px; }\n    .post-comments .comment .comment-options {\n      position: absolute;\n      top: 40%;\n      left: 100%;\n      cursor: pointer;\n      color: #C1C2C4;\n      outline: none;\n      margin-left: 5px; }\n    .post-comments .comment .comment-options-menu {\n      display: none;\n      background-color: white;\n      border: 1px solid #D9D9D9;\n      box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.75); }\n      .post-comments .comment .comment-options-menu .remove-comment {\n        display: inline-block; }\n    .post-comments .comment .comment-likes {\n      position: absolute;\n      top: 40px;\n      right: -7px;\n      background: white;\n      border-radius: 15px;\n      box-shadow: 0px 1px 10px 2px lightgrey;\n      display: none; }\n      .post-comments .comment .comment-likes .likes {\n        display: flex;\n        align-items: center;\n        padding: 2px; }\n        .post-comments .comment .comment-likes .likes span, .post-comments .comment .comment-likes .likes img {\n          padding: 2px; }\n    .post-comments .comment img {\n      width: 22px;\n      height: 22px;\n      border: none; }\n  .post-comments img {\n    width: 30px;\n    height: 30px;\n    border-radius: 50%;\n    border: 1px solid #D9D9D9; }\n  .post-comments .personal-comment {\n    display: flex;\n    flex-direction: initial;\n    justify-content: initial;\n    align-items: center; }\n  .post-comments .personal-comment-input-and-icons {\n    display: flex;\n    flex-direction: initial;\n    justify-content: initial;\n    align-items: center;\n    width: 100%;\n    background-color: white;\n    padding: 0 15px;\n    border: 1px solid #D9D9D9;\n    border-radius: 20px; }\n    .post-comments .personal-comment-input-and-icons input {\n      width: 100%;\n      height: 30px; }\n    .post-comments .personal-comment-input-and-icons [class*='fa-'] {\n      padding: 3px; }\n  .post-comments .user-info, .post-comments .user-comment {\n    display: inline-block; }\n  .post-comments .user-comment {\n    background-color: white;\n    padding: 10px;\n    border-radius: 15px;\n    position: relative;\n    margin-bottom: 20px; }\n  .post-comments .post-comments-area {\n    display: flex;\n    flex-direction: column; }\n\n.post-comments-body,\n.public-post-follow,\n.public-post-reactions {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: initial;\n  padding: 15px; }\n\n.follow-btn {\n  border: 1px solid #D9D9D9; }\n  .follow-btn span {\n    font-weight: 600;\n    font-size: 13px; }\n\n.post-preview {\n  border: 1px solid #D9D9D9;\n  width: 95%;\n  margin: auto;\n  box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.75); }\n\n.post-source {\n  direction: initial;\n  display: inherit; }\n\n.post-likes .fa-thumbs-up {\n  color: #4679EB; }\n\n.download-btn {\n  position: absolute;\n  top: 9px;\n  right: unset;\n  bottom: unset;\n  left: 0;\n  border: 0;\n  padding: 0;\n  border: none;\n  font-size: 14px;\n  background-color: white;\n  color: #4E5665;\n  padding: 0;\n  cursor: pointer; }\n  .download-btn img {\n    height: 22px;\n    width: 22px; }\n", "", {"version":3,"sources":["C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_global.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_vars.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_header.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_navbar.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_stories.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_suggested.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_userInput.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_post.scss"],"names":[],"mappings":"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","file":"styles.scss","sourcesContent":["* {\r\n    padding: 0;\r\n    margin: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\nul {\r\n    list-style: none;\r\n}\r\na {\r\n    color: inherit; \r\n    text-decoration: inherit;\r\n}\r\ninput, textarea {\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    background-color: red;\r\n    // background-color: $body-hover-color-grey;\r\n    font-family: Helvetica, Arial, sans-serif;\r\n    font-size: 14px;\r\n    color: $main-font-color;    \r\n}\r\n\r\n.grey-hover:hover {\r\n    background-color: $body-hover-color-grey;\r\n    cursor: pointer;\r\n}\r\n\r\n.color-blue {\r\n    color: $links-color-blue;\r\n    cursor: pointer;\r\n    &:hover {\r\n        text-decoration: underline;\r\n    }\r\n}\r\n\r\n.flex-item {\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n.container {\r\n    max-width: 1020px;\r\n    top: 52px;\r\n    position: relative;\r\n    margin: $centred;\r\n    display: grid;\r\n    grid-template-columns: 150px 53% 30%;\r\n    grid-gap: 10px;\r\n}\r\n\r\n.newsfeed {\r\n    grid-column: 2/3;\r\n}\r\n.grid-left {\r\n    position: fixed;\r\n}\r\n.right {\r\n    grid-column: 3/4;\r\n}\r\n\r\n.heb {\r\n    direction: rtl;\r\n}\r\n\r\n.headers {\r\n    @include headers();\r\n}\r\n\r\n.bg {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    // background-color: aqua;\r\n    // z-index: 11;\r\n}","//Colors\r\n\r\n$main-font-color: #5F636A;\r\n$body-hover-color-grey: #E9EBEE;\r\n$border-color-grey: #D9D9D9;\r\n$descr-font-color-dark-grey: #AFB2B8;\r\n$links-color-blue: #365899;\r\n\r\n//Borders\r\n\r\n$border: 1px solid $border-color-grey;\r\n$border-header-blue: 1px solid #3B5CA0;\r\n$box-shadow: 0px 1px 2px -2px rgba(0,0,0,0.75);\r\n\r\n//Fonts\r\n\r\n$small-font-size: 12px; \r\n$headers-font-size: 13px;\r\n$headers-font-weight: 600;\r\n\r\n//Sizes & other\r\n\r\n$inner-padding: 13px;\r\n$direction-rtl: rtl;\r\n$centred: 0 auto;\r\n\r\n\r\n@mixin flex-item($flex-direction, $justify, $align) {\r\n    display: flex;\r\n    flex-direction: $flex-direction;\r\n    justify-content: $justify;\r\n    align-items: $align;\r\n}\r\n\r\n@mixin publisher-pic($width,$height) {\r\n    width: $width;\r\n    height: $height;\r\n    border-radius: 50%;\r\n    border: $border;\r\n}\r\n\r\n@mixin button($padding, $bgcolor:#F6F7F9) {\r\n    border: 0;\r\n    padding: 0;\r\n    border: none;\r\n    font-size: 14px;\r\n    background-color: $bgcolor;\r\n    color:  #4E5665;\r\n    padding: $padding;\r\n    cursor: pointer;\r\n}\r\n\r\n@mixin headers() {\r\n    font-size: $headers-font-size;\r\n    font-weight: $headers-font-weight;\r\n    padding: 5px;\r\n}\r\n@mixin publisher-name() {\r\n    font-size: 15px;\r\n    font-weight: $headers-font-weight;\r\n\r\n}\r\n@mixin position($pos,$top,$right,$bottom,$left) {\r\n    position: $pos;\r\n    top: $top;\r\n    right: $right;\r\n    bottom: $bottom;\r\n    left: $left;\r\n}\r\n\r\n@mixin triangle($direction, $color, $big, $small) {\r\n    border: $small solid transparent;\r\n    border-#{$direction}: none;\r\n    width: 0;\r\n    height: 0;\r\n    \r\n    @if ($direction == top) {\r\n        border-bottom: $big solid $color;\r\n    }@else if ($direction == left) {\r\n        border-right: $big solid $color;\r\n    }@else if ($direction == bottom) {\r\n        border-top: $big solid $color;\r\n    }@else if ($direction == right) {\r\n        border-left: $big solid $color;\r\n    }\r\n  }\r\n",".header {\r\n    height: 42px;\r\n    width: 100%;\r\n    @include flex-item(initial,space-between,center);\r\n    position: fixed;\r\n    z-index: 1;\r\n    border-bottom: 1px solid #29487D;\r\n    background-color: #4267B2;\r\n    color: white;\r\n}\r\n.header-center {\r\n    width: 1020px;\r\n    margin: $centred;\r\n    @include flex-item(initial,space-between,center);\r\n}\r\n\r\n.search-bar > input {\r\n    width: 400px;\r\n    height: 22px;\r\n    padding: 8px;\r\n}\r\n\r\n.fa-facebook-square {\r\n    font-size: 25px;\r\n    margin-right: 7px;\r\n}\r\n\r\n.search-btn {\r\n    @include button(3px 15px);\r\n}\r\n\r\n.header-right>a {\r\n    font-weight: 700;\r\n    font-size: 12px;\r\n    padding: 4px 10px;\r\n    &:hover {\r\n        background-color: #3B5DA0;\r\n    }\r\n    &:nth-child(2) {\r\n        border-left: $border-header-blue;\r\n        border-right: $border-header-blue;\r\n    }  \r\n    \r\n}\r\n\r\n.header-icons {\r\n    color: #1A2946;\r\n    font-size: 18px;\r\n    cursor: pointer;\r\n}\r\n\r\n.header-icons li {\r\n    padding: 5px;\r\n    &:hover {\r\n        color: black;\r\n    }\r\n    &:nth-child(4)::before,\r\n    &:first-child::before {\r\n        content: \"|\";\r\n        color: #3B5CA0;\r\n        font-size: 24px;\r\n        margin-right: 8px;\r\n    }\r\n}\r\n\r\n.userpic {\r\n    margin-right: 8px;\r\n    @include publisher-pic(25px,25px);\r\n}",".navbar {\r\n    width: 150px;\r\n    grid-column: 1/2;\r\n    z-index: 1;\r\n    font-size: 12px;\r\n    margin-top: 10px;\r\n}\r\n\r\n.navbar-item {\r\n    grid-template-columns: 20% 80%;\r\n    display: grid;\r\n    align-items: center;\r\n    padding: 3px;\r\n    &:hover {\r\n        background-color: #F6F7F9;\r\n        border: 1px solid #DDDFE2;\r\n        margin: -1px;\r\n    }\r\n}\r\n\r\n.navbar-icon {\r\n    width: 23px;\r\n    height: 23px;\r\n    grid-column: 1/2;\r\n}\r\n\r\n.navbar-text {\r\n    grid-column: 2/3;\r\n    display: inline-block;\r\n    overflow: hidden;            /* To truncate string use theese 3 prop*/\r\n    text-overflow: ellipsis;     \r\n    white-space: nowrap;         \r\n}\r\n\r\n.navbar-links {\r\n    margin-top: 15px;\r\n}\r\n.create a {\r\n    &::after {\r\n        content: '\\00B7';\r\n        padding-left: 3px;\r\n    }\r\n    &:first-of-type {\r\n        margin-left: 5px;\r\n    }\r\n    \r\n}\r\n\r\n\r\n\r\n.see-more {\r\n    margin: 12px 4px;\r\n    padding: 3px;\r\n    font-size: 13px;\r\n    color: #365899;\r\n    & .fa-caret-down {\r\n        color: #90949C;\r\n    }\r\n    & a {\r\n        margin-left: 5px;\r\n    }\r\n}",".stories-header {\r\n    @include flex-item(initial, space-between, center);\r\n    padding: 10px 10px 0 10px;\r\n}\r\n.story-info {\r\n    padding: 10px;\r\n}\r\n.fa-plus {\r\n    width: 50px;\r\n    height: 50px;\r\n    padding: 18px;\r\n    border: $border;\r\n    border-radius: 50%;\r\n    background-color: #F5F6F7;\r\n    color: #187BFB;\r\n}\r\n.stories-info {\r\n    @include flex-item(initial, initial, center);\r\n    padding: 0px 12px 12px 12px;\r\n}\r\n\r\n.descr-text  {\r\n    font-size: 13px;\r\n    color: $descr-font-color-dark-grey;\r\n}\r\n\r\n.lang {\r\n    @include flex-item(initial, space-between, center);\r\n    font-size: 13px;\r\n    & .fa-plus {\r\n        color: inherit;\r\n        border-radius: 10px;\r\n        padding: 11px;\r\n        width: 35px;\r\n        height: 35px;\r\n    }\r\n    & span {\r\n        line-height: 1.4;\r\n        &::after {\r\n            content: '\\00B7';\r\n            padding: 2px;\r\n        }\r\n    }\r\n    \r\n}\r\n\r\n.lang span:last-of-type::after,\r\n.create a:last-of-type::after {\r\n    content: none;\r\n}",".suggested-body {\r\n    border: $border;\r\n    margin: 10px;\r\n}\r\n.suggested-header,\r\n.ads-header {\r\n    @include flex-item(initial, space-between, center);\r\n    padding: 8px 12px 0 12px;\r\n}\r\n.sug-page-rating  {\r\n    padding: 8px;\r\n    border-bottom: $border;\r\n    color: #4267B2;\r\n}\r\n.fa-star {\r\n    font-size: 10px;\r\n}\r\n.sug-page-info {\r\n    display: grid;\r\n    grid-template-columns: 20% 80%;\r\n    grid-gap: 5px;\r\n    padding: 8px;\r\n}\r\n\r\n.suggested  {\r\n    & .like {\r\n        @include flex-item(initial, center, initial);\r\n    }\r\n    img {\r\n        max-width: 100%;\r\n        border-top: $border;\r\n        border-bottom: $border;\r\n    }\r\n}\r\n.ads {\r\n    img {\r\n        max-width: 100%;\r\n        border-top: $border;\r\n        border-bottom: $border;\r\n    }\r\n    span {\r\n        display: inline-block;\r\n        margin-bottom: 10px;\r\n    }\r\n    h4 {\r\n        padding: 5px;\r\n    }\r\n    p {\r\n        font-size: 13px;\r\n    }\r\n}\r\n\r\n\r\n   \r\n\r\n",".template {\r\n    background-color: white;\r\n    margin-top: 12px;\r\n    border: $border;\r\n    border-radius: 5px;\r\n    color: #5F636A;\r\n}\r\n\r\n.user-input {\r\n    justify-content: space-between;\r\n\r\n}\r\n.user-input-links-top {\r\n    background-color: #F6F7F9;\r\n    border-bottom: $border;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    @include flex-item(initial, initial, center);\r\n\r\n    & a {\r\n        padding: 9px 10px;\r\n        &:first-of-type {\r\n            position: relative;\r\n        }\r\n    }\r\n    & .album {\r\n        border-left: $border;\r\n        border-right: $border\r\n    }\r\n    & .fas {\r\n        margin-right: 4px;\r\n    }\r\n}\r\n\r\n.album span,\r\n.video span {\r\n    color: #365899;\r\n}\r\n.triangle {\r\n    @include triangle(top,white,8px,8px);\r\n    @include position(absolute,unset,unset,-1px,56px);\r\n}\r\n.triangle-border {\r\n    @include triangle(top,$border-color-grey,9px,9px);\r\n    @include position(absolute,unset,unset,-1px,55px);\r\n}\r\n\r\n.user-input-text {\r\n    display: flex;\r\n    & textarea {\r\n        width: 100%;\r\n        padding-top: 25px;\r\n        height: inherit;\r\n        resize: none;\r\n    }\r\n    & img {\r\n        margin: 10px;\r\n        @include publisher-pic(45px,45px); \r\n    }\r\n    \r\n}\r\n\r\n.user-input-links-bottom {\r\n    border-top: $border;\r\n    padding: 3px;\r\n    margin: auto 10px;\r\n    & .btn {\r\n        @include button(8px 16px);\r\n        padding: 8px 16px;\r\n        margin: 5px;\r\n        border-radius: 14px;\r\n        &:hover {\r\n            background-color: $body-hover-color-grey;\r\n        }\r\n    }\r\n    & .fa-image {\r\n        color: #94CD54;\r\n    }\r\n    & .fa-smile {\r\n        color: #F7C43A;\r\n    }\r\n    & .fa-ellipsis-h {\r\n        color: #A6ABB4; \r\n    }\r\n}\r\n\r\n.extend-user-input {\r\n    background-color: $body-hover-color-grey;\r\n    padding: 10px;\r\n    border-bottom-left-radius: 5px;\r\n    border-bottom-right-radius: 5px;\r\n    border-top: $border;\r\n    display: none;\r\n    & button {\r\n        width: 100%;\r\n        color: white;\r\n        background-color: #9CB4D8;\r\n        font-weight: bold;\r\n        padding: 8px;\r\n        &:hover {\r\n            background-color: #4267B2;\r\n        }\r\n    }\r\n}","// Basic Post Settings\r\n.btn {\r\n    @include button(5px 13px);\r\n    &.save-btn {\r\n        border: $border;\r\n    }\r\n    &.white-btn {\r\n        margin: $centred;\r\n        @include button(12px, white);\r\n        &:hover {\r\n            background-color: $body-hover-color-grey;\r\n        }\r\n    }\r\n}\r\n.post-header {\r\n    @include flex-item(initial, space-between, initial);\r\n}\r\n\r\n.publisher-name {\r\n    @include publisher-name();\r\n}\r\n.publisher img {\r\n    @include publisher-pic(45px,45px);\r\n    border: $border;\r\n}\r\n.publisher-info {\r\n    @include flex-item(column, initial, initial);\r\n    padding: 6px 10px;\r\n}\r\n.post-type-icon::before {\r\n    content: '\\00B7';\r\n    padding: 8px 5px 0 4px;\r\n}\r\n.post-date {\r\n    display: inline-block;\r\n    font-size: 12px;\r\n    padding: 3px 0;\r\n}\r\n.post-header {\r\n    position: relative;\r\n}\r\n.post-options-menu {\r\n    display: none;\r\n    flex-direction: column;\r\n    @include position(absolute,15px,0,unset,unset);\r\n    background-color: white;\r\n    border: $border;\r\n    box-shadow: $box-shadow;\r\n}\r\n.edit-post, .remove-post, .remove-comment {\r\n    padding: 5px;\r\n    color: black;\r\n    cursor: pointer;\r\n    &:hover {\r\n        color: white;\r\n        background-color: $links-color-blue;\r\n    }\r\n}\r\n.post {\r\n    padding: {\r\n        top:10px;\r\n        left: 10px;\r\n        right: 10px;\r\n    } \r\n    & img, video {\r\n        max-width:100%;\r\n        max-height:100%;\r\n    }\r\n    & .post-text {\r\n        outline: none;\r\n    }\r\n}\r\n.post-user-action {\r\n    @include flex-item(initial, space-around, center);\r\n    position: relative;\r\n    border: {\r\n        top: $border;\r\n    }\r\n}\r\n.light-padded {\r\n    padding: 7px;\r\n}\r\n.post-likes {\r\n    display: none;\r\n    padding: 8px;\r\n    background-color: #F2F3F5;\r\n    border: \r\n    {\r\n        left: $border;\r\n        right: $border;\r\n        bottom: $border;\r\n    }\r\n    & img {\r\n        width: 22px;\r\n        height: 22px;\r\n    }\r\n}\r\n\r\n.post-comments {\r\n    padding: 8px;\r\n    background-color: #F2F3F5;\r\n    border: \r\n    {\r\n        left: $border;\r\n        right: $border;\r\n        bottom: $border;\r\n    }\r\n    & .comment {\r\n        margin-bottom: 10px;\r\n        max-width: 95%;\r\n        & .comment-reactions {\r\n            bottom: -15px;\r\n            position: absolute;\r\n            font-size: $small-font-size;\r\n            & .like::after {\r\n                content: '\\00B7';\r\n                padding-left: 4px;\r\n            }\r\n        }\r\n        & .comment-options {\r\n            position: absolute;\r\n            top: 40%;\r\n            left: 100%;\r\n            cursor: pointer;\r\n            color: #C1C2C4;\r\n            outline: none;\r\n            margin-left: 5px;\r\n        }\r\n        & .comment-options-menu {\r\n            display: none;\r\n            background-color: white;\r\n            border: $border;\r\n            box-shadow: $box-shadow;\r\n            & .remove-comment {\r\n                display: inline-block;\r\n            }\r\n        } \r\n\r\n        \r\n        & .comment-likes {\r\n            position: absolute;\r\n            top: 40px;\r\n            right: -7px;\r\n            background: white;\r\n            border-radius: 15px;\r\n            box-shadow: 0px 1px 10px 2px lightgrey;\r\n            display: none;\r\n            & .likes {\r\n                display: flex;\r\n                align-items: center;\r\n                padding: 2px;\r\n                & span, img {\r\n                    padding: 2px;\r\n                } \r\n            }\r\n        }\r\n        & img {\r\n            width: 22px;\r\n            height: 22px;\r\n            border: none;\r\n        }\r\n    }\r\n    & img {\r\n        @include  publisher-pic(30px, 30px);\r\n    }\r\n    & .personal-comment {\r\n        @include flex-item(initial,initial,center);\r\n    }\r\n    & .personal-comment-input-and-icons {\r\n        @include flex-item(initial,initial,center);\r\n        width: 100%;\r\n        background-color: white;\r\n        padding: 0 15px;\r\n        border: $border;\r\n        border-radius: 20px;\r\n        & input {\r\n            width: 100%;\r\n            height: 30px;\r\n        }\r\n        & [class*='fa-'] {\r\n            padding: 3px;\r\n        }\r\n    }\r\n    & .user-info, .user-comment  {\r\n        display: inline-block;\r\n    }\r\n    & .user-comment {\r\n        background-color: white;\r\n        padding: 10px;\r\n        border-radius: 15px;\r\n        position: relative;\r\n        margin-bottom: 20px;\r\n\r\n    }\r\n    & .post-comments-area {\r\n        display: flex;\r\n        flex-direction: column;\r\n    }\r\n}\r\n\r\n// Dummy posts\r\n\r\n.post-comments-body,\r\n.public-post-follow,\r\n.public-post-reactions {\r\n    @include flex-item(initial, space-between, initial);\r\n    padding: 15px;\r\n}\r\n\r\n.follow-btn {\r\n    border: $border;\r\n    span {\r\n        font-weight: $headers-font-weight;\r\n        font-size: $headers-font-size;\r\n    }\r\n}\r\n\r\n.post-preview {\r\n    border: $border;\r\n    width: 95%;\r\n    margin: auto;\r\n    box-shadow: $box-shadow;\r\n}\r\n\r\n.post-source { \r\n    direction: initial;\r\n    display: inherit;\r\n}\r\n.post-likes .fa-thumbs-up {\r\n    color: #4679EB;\r\n}\r\n\r\n.download-btn {\r\n    @include position(absolute,9px,unset,unset,0);\r\n    @include button(0, white);\r\n    img {\r\n        height: 22px; width: 22px;\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n\r\n//-------------------"],"sourceRoot":""}]);
+exports.push([module.i, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box; }\n\nul {\n  list-style: none; }\n\na {\n  color: inherit;\n  text-decoration: inherit; }\n\ninput, textarea {\n  border: none;\n  outline: none; }\n\nbody {\n  background-color: #E9EBEE;\n  font-family: Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  color: #5F636A; }\n\n.grey-hover:hover {\n  background-color: #E9EBEE;\n  cursor: pointer; }\n\n.color-blue {\n  color: #365899;\n  cursor: pointer; }\n  .color-blue:hover {\n    text-decoration: underline; }\n\n.flex-item {\n  display: flex;\n  align-items: center; }\n\n.container {\n  max-width: 1020px;\n  top: 52px;\n  position: relative;\n  margin: 0 auto;\n  display: grid;\n  grid-template-columns: 150px 53% 30%;\n  grid-gap: 10px; }\n\n.newsfeed {\n  grid-column: 2/3; }\n\n.grid-left {\n  position: fixed; }\n\n.right {\n  grid-column: 3/4; }\n\n.heb {\n  direction: rtl; }\n\n.headers {\n  font-size: 13px;\n  font-weight: 600;\n  padding: 5px; }\n\n.bg {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n.header {\n  height: 42px;\n  width: 100%;\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  position: fixed;\n  z-index: 1;\n  border-bottom: 1px solid #29487D;\n  background-color: #4267B2;\n  color: white; }\n\n.header-center {\n  width: 1020px;\n  margin: 0 auto;\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center; }\n\n.search-bar > input {\n  width: 400px;\n  height: 22px;\n  padding: 8px; }\n\n.fa-facebook-square {\n  font-size: 25px;\n  margin-right: 7px; }\n\n.search-btn {\n  border: 0;\n  padding: 0;\n  border: none;\n  font-size: 14px;\n  background-color: #F6F7F9;\n  color: #4E5665;\n  padding: 3px 15px;\n  cursor: pointer; }\n\n.header-right > a {\n  font-weight: 700;\n  font-size: 12px;\n  padding: 4px 10px; }\n  .header-right > a:hover {\n    background-color: #3B5DA0; }\n  .header-right > a:nth-child(2) {\n    border-left: 1px solid #3B5CA0;\n    border-right: 1px solid #3B5CA0; }\n\n.header-icons {\n  color: #1A2946;\n  font-size: 18px;\n  cursor: pointer; }\n\n.header-icons li {\n  padding: 5px; }\n  .header-icons li:hover {\n    color: black; }\n  .header-icons li:nth-child(4)::before, .header-icons li:first-child::before {\n    content: \"|\";\n    color: #3B5CA0;\n    font-size: 24px;\n    margin-right: 8px; }\n\n.userpic {\n  margin-right: 8px;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  border: 1px solid #D9D9D9; }\n\n.navbar {\n  width: 150px;\n  grid-column: 1/2;\n  z-index: 1;\n  font-size: 12px;\n  margin-top: 10px; }\n\n.navbar-item {\n  grid-template-columns: 20% 80%;\n  display: grid;\n  align-items: center;\n  padding: 3px; }\n  .navbar-item:hover {\n    background-color: #F6F7F9;\n    border: 1px solid #DDDFE2;\n    margin: -1px; }\n\n.navbar-icon {\n  width: 23px;\n  height: 23px;\n  grid-column: 1/2; }\n\n.navbar-text {\n  grid-column: 2/3;\n  display: inline-block;\n  overflow: hidden;\n  /* To truncate string use theese 3 prop*/\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n\n.navbar-links {\n  margin-top: 15px; }\n\n.create a::after {\n  content: '\\B7';\n  padding-left: 3px; }\n\n.create a:first-of-type {\n  margin-left: 5px; }\n\n.see-more {\n  margin: 12px 4px;\n  padding: 3px;\n  font-size: 13px;\n  color: #365899; }\n  .see-more .fa-caret-down {\n    color: #90949C; }\n  .see-more a {\n    margin-left: 5px; }\n\n.stories-header {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10px 10px 0 10px; }\n\n.story-info {\n  padding: 10px; }\n\n.fa-plus {\n  width: 50px;\n  height: 50px;\n  padding: 18px;\n  border: 1px solid #D9D9D9;\n  border-radius: 50%;\n  background-color: #F5F6F7;\n  color: #187BFB; }\n\n.stories-info {\n  display: flex;\n  flex-direction: initial;\n  justify-content: initial;\n  align-items: center;\n  padding: 0px 12px 12px 12px; }\n\n.descr-text {\n  font-size: 13px;\n  color: #AFB2B8; }\n\n.lang {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 13px; }\n  .lang .fa-plus {\n    color: inherit;\n    border-radius: 10px;\n    padding: 11px;\n    width: 35px;\n    height: 35px; }\n  .lang span {\n    line-height: 1.4; }\n    .lang span::after {\n      content: '\\B7';\n      padding: 2px; }\n\n.lang span:last-of-type::after,\n.create a:last-of-type::after {\n  content: none; }\n\n.suggested-body {\n  border: 1px solid #D9D9D9;\n  margin: 10px; }\n\n.suggested-header,\n.ads-header {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: center;\n  padding: 8px 12px 0 12px; }\n\n.sug-page-rating {\n  padding: 8px;\n  border-bottom: 1px solid #D9D9D9;\n  color: #4267B2; }\n\n.fa-star {\n  font-size: 10px; }\n\n.sug-page-info {\n  display: grid;\n  grid-template-columns: 20% 80%;\n  grid-gap: 5px;\n  padding: 8px; }\n\n.suggested .like {\n  display: flex;\n  flex-direction: initial;\n  justify-content: center;\n  align-items: initial; }\n\n.suggested img {\n  max-width: 100%;\n  border-top: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n\n.ads img {\n  max-width: 100%;\n  border-top: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n\n.ads span {\n  display: inline-block;\n  margin-bottom: 10px; }\n\n.ads h4 {\n  padding: 5px; }\n\n.ads p {\n  font-size: 13px; }\n\n.template {\n  background-color: white;\n  margin-top: 12px;\n  border: 1px solid #D9D9D9;\n  border-radius: 5px;\n  color: #5F636A; }\n\n.user-input {\n  justify-content: space-between; }\n\n.user-input-links-top {\n  background-color: #F6F7F9;\n  border-bottom: 1px solid #D9D9D9;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  display: flex;\n  flex-direction: initial;\n  justify-content: initial;\n  align-items: center; }\n  .user-input-links-top a {\n    padding: 9px 10px; }\n    .user-input-links-top a:first-of-type {\n      position: relative; }\n  .user-input-links-top .album {\n    border-left: 1px solid #D9D9D9;\n    border-right: 1px solid #D9D9D9; }\n  .user-input-links-top .fas {\n    margin-right: 4px; }\n\n.album span,\n.video span {\n  color: #365899; }\n\n.triangle {\n  border: 8px solid transparent;\n  border-top: none;\n  width: 0;\n  height: 0;\n  border-bottom: 8px solid white;\n  position: absolute;\n  top: unset;\n  right: unset;\n  bottom: -1px;\n  left: 56px; }\n\n.triangle-border {\n  border: 9px solid transparent;\n  border-top: none;\n  width: 0;\n  height: 0;\n  border-bottom: 9px solid #D9D9D9;\n  position: absolute;\n  top: unset;\n  right: unset;\n  bottom: -1px;\n  left: 55px; }\n\n.user-input-text {\n  display: flex; }\n  .user-input-text textarea {\n    width: 100%;\n    padding-top: 25px;\n    height: inherit;\n    resize: none; }\n  .user-input-text img {\n    margin: 10px;\n    width: 45px;\n    height: 45px;\n    border-radius: 50%;\n    border: 1px solid #D9D9D9; }\n\n.user-input-links-bottom {\n  border-top: 1px solid #D9D9D9;\n  padding: 3px;\n  margin: auto 10px; }\n  .user-input-links-bottom .btn {\n    border: 0;\n    padding: 0;\n    border: none;\n    font-size: 14px;\n    background-color: #F6F7F9;\n    color: #4E5665;\n    padding: 8px 16px;\n    cursor: pointer;\n    padding: 8px 16px;\n    margin: 5px;\n    border-radius: 14px; }\n    .user-input-links-bottom .btn:hover {\n      background-color: #E9EBEE; }\n  .user-input-links-bottom .fa-image {\n    color: #94CD54; }\n  .user-input-links-bottom .fa-smile {\n    color: #F7C43A; }\n  .user-input-links-bottom .fa-ellipsis-h {\n    color: #A6ABB4; }\n\n.extend-user-input {\n  background-color: #E9EBEE;\n  padding: 10px;\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 5px;\n  border-top: 1px solid #D9D9D9;\n  display: none; }\n  .extend-user-input button {\n    width: 100%;\n    color: white;\n    background-color: #9CB4D8;\n    font-weight: bold;\n    padding: 8px; }\n    .extend-user-input button:hover {\n      background-color: #4267B2; }\n\n.btn {\n  border: 0;\n  padding: 0;\n  border: none;\n  font-size: 14px;\n  background-color: #F6F7F9;\n  color: #4E5665;\n  padding: 5px 13px;\n  cursor: pointer; }\n  .btn.save-btn {\n    border: 1px solid #D9D9D9; }\n  .btn.white-btn {\n    margin: 0 auto;\n    border: 0;\n    padding: 0;\n    border: none;\n    font-size: 14px;\n    background-color: white;\n    color: #4E5665;\n    padding: 12px;\n    cursor: pointer; }\n    .btn.white-btn:hover {\n      background-color: #E9EBEE; }\n\n.post-header {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: initial; }\n\n.publisher-name {\n  font-size: 15px;\n  font-weight: 600; }\n\n.publisher img {\n  width: 45px;\n  height: 45px;\n  border-radius: 50%;\n  border: 1px solid #D9D9D9;\n  border: 1px solid #D9D9D9; }\n\n.publisher-info {\n  display: flex;\n  flex-direction: column;\n  justify-content: initial;\n  align-items: initial;\n  padding: 6px 10px; }\n\n.post-type-icon::before {\n  content: '\\B7';\n  padding: 8px 5px 0 4px; }\n\n.post-date {\n  display: inline-block;\n  font-size: 12px;\n  padding: 3px 0; }\n\n.post-header {\n  position: relative; }\n\n.post-options-menu {\n  display: none;\n  flex-direction: column;\n  position: absolute;\n  top: 15px;\n  right: 0;\n  bottom: unset;\n  left: unset;\n  background-color: white;\n  border: 1px solid #D9D9D9;\n  box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.75); }\n\n.edit-post, .remove-post, .remove-comment {\n  padding: 5px;\n  color: black;\n  cursor: pointer; }\n  .edit-post:hover, .remove-post:hover, .remove-comment:hover {\n    color: white;\n    background-color: #365899; }\n\n.post {\n  padding-top: 10px;\n  padding-left: 10px;\n  padding-right: 10px; }\n  .post img, .post video {\n    max-width: 100%;\n    max-height: 100%; }\n  .post .post-text {\n    outline: none; }\n\n.post-user-action {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-around;\n  align-items: center;\n  position: relative;\n  border-top: 1px solid #D9D9D9; }\n\n.light-padded {\n  padding: 7px; }\n\n.post-likes {\n  display: none;\n  padding: 8px;\n  background-color: #F2F3F5;\n  border-left: 1px solid #D9D9D9;\n  border-right: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n  .post-likes img {\n    width: 22px;\n    height: 22px; }\n\n.post-comments {\n  padding: 8px;\n  background-color: #F2F3F5;\n  border-left: 1px solid #D9D9D9;\n  border-right: 1px solid #D9D9D9;\n  border-bottom: 1px solid #D9D9D9; }\n  .post-comments .comment {\n    margin-bottom: 10px;\n    max-width: 95%; }\n    .post-comments .comment .comment-reactions {\n      bottom: -15px;\n      position: absolute;\n      font-size: 12px; }\n      .post-comments .comment .comment-reactions .like::after {\n        content: '\\B7';\n        padding-left: 4px; }\n    .post-comments .comment .comment-options {\n      position: absolute;\n      top: 40%;\n      left: 100%;\n      cursor: pointer;\n      color: #C1C2C4;\n      outline: none;\n      margin-left: 5px; }\n    .post-comments .comment .comment-options-menu {\n      display: none;\n      background-color: white;\n      border: 1px solid #D9D9D9;\n      box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.75); }\n      .post-comments .comment .comment-options-menu .remove-comment {\n        display: inline-block; }\n    .post-comments .comment .comment-likes {\n      position: absolute;\n      top: 40px;\n      right: -7px;\n      background: white;\n      border-radius: 15px;\n      box-shadow: 0px 1px 10px 2px lightgrey;\n      display: none; }\n      .post-comments .comment .comment-likes .likes {\n        display: flex;\n        align-items: center;\n        padding: 2px; }\n        .post-comments .comment .comment-likes .likes span, .post-comments .comment .comment-likes .likes img {\n          padding: 2px; }\n    .post-comments .comment img {\n      width: 22px;\n      height: 22px;\n      border: none; }\n  .post-comments img {\n    width: 30px;\n    height: 30px;\n    border-radius: 50%;\n    border: 1px solid #D9D9D9; }\n  .post-comments .personal-comment {\n    display: flex;\n    flex-direction: initial;\n    justify-content: initial;\n    align-items: center; }\n  .post-comments .personal-comment-input-and-icons {\n    display: flex;\n    flex-direction: initial;\n    justify-content: initial;\n    align-items: center;\n    width: 100%;\n    background-color: white;\n    padding: 0 15px;\n    border: 1px solid #D9D9D9;\n    border-radius: 20px; }\n    .post-comments .personal-comment-input-and-icons input {\n      width: 100%;\n      height: 30px; }\n    .post-comments .personal-comment-input-and-icons [class*='fa-'] {\n      padding: 3px; }\n  .post-comments .user-info, .post-comments .user-comment {\n    display: inline-block; }\n  .post-comments .user-comment {\n    background-color: white;\n    padding: 10px;\n    border-radius: 15px;\n    position: relative;\n    margin-bottom: 20px; }\n  .post-comments .post-comments-area {\n    display: flex;\n    flex-direction: column; }\n\n.post-comments-body,\n.public-post-follow,\n.public-post-reactions {\n  display: flex;\n  flex-direction: initial;\n  justify-content: space-between;\n  align-items: initial;\n  padding: 15px; }\n\n.follow-btn {\n  border: 1px solid #D9D9D9; }\n  .follow-btn span {\n    font-weight: 600;\n    font-size: 13px; }\n\n.post-preview {\n  border: 1px solid #D9D9D9;\n  width: 95%;\n  margin: auto;\n  box-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.75); }\n\n.post-source {\n  direction: initial;\n  display: inherit; }\n\n.post-likes .fa-thumbs-up {\n  color: #4679EB; }\n\n.download-btn {\n  position: absolute;\n  top: 9px;\n  right: unset;\n  bottom: unset;\n  left: 0;\n  border: 0;\n  padding: 0;\n  border: none;\n  font-size: 14px;\n  background-color: white;\n  color: #4E5665;\n  padding: 0;\n  cursor: pointer; }\n  .download-btn img {\n    height: 22px;\n    width: 22px; }\n", "", {"version":3,"sources":["C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_global.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_vars.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_header.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_navbar.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_stories.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_suggested.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_userInput.scss","C:/Users/taube/Google Drive/FED/FED Course/Lessons/Lesson 20 - 27.05.18 - CSS - Flexbox - Facebook project/Facebook-Clone/scss/scss/_post.scss"],"names":[],"mappings":"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","file":"styles.scss","sourcesContent":["* {\r\n    padding: 0;\r\n    margin: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\nul {\r\n    list-style: none;\r\n}\r\na {\r\n    color: inherit; \r\n    text-decoration: inherit;\r\n}\r\ninput, textarea {\r\n    border: none;\r\n    outline: none;\r\n}\r\n\r\nbody {\r\n    // background-color: red;\r\n    background-color: $body-hover-color-grey;\r\n    font-family: Helvetica, Arial, sans-serif;\r\n    font-size: 14px;\r\n    color: $main-font-color;    \r\n}\r\n\r\n.grey-hover:hover {\r\n    background-color: $body-hover-color-grey;\r\n    cursor: pointer;\r\n}\r\n\r\n.color-blue {\r\n    color: $links-color-blue;\r\n    cursor: pointer;\r\n    &:hover {\r\n        text-decoration: underline;\r\n    }\r\n}\r\n\r\n.flex-item {\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n.container {\r\n    max-width: 1020px;\r\n    top: 52px;\r\n    position: relative;\r\n    margin: $centred;\r\n    display: grid;\r\n    grid-template-columns: 150px 53% 30%;\r\n    grid-gap: 10px;\r\n}\r\n\r\n.newsfeed {\r\n    grid-column: 2/3;\r\n}\r\n.grid-left {\r\n    position: fixed;\r\n}\r\n.right {\r\n    grid-column: 3/4;\r\n}\r\n\r\n.heb {\r\n    direction: rtl;\r\n}\r\n\r\n.headers {\r\n    @include headers();\r\n}\r\n\r\n.bg {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 0;\r\n    // background-color: aqua;\r\n    // z-index: 11;\r\n}","//Colors\r\n\r\n$main-font-color: #5F636A;\r\n$body-hover-color-grey: #E9EBEE;\r\n$border-color-grey: #D9D9D9;\r\n$descr-font-color-dark-grey: #AFB2B8;\r\n$links-color-blue: #365899;\r\n\r\n//Borders\r\n\r\n$border: 1px solid $border-color-grey;\r\n$border-header-blue: 1px solid #3B5CA0;\r\n$box-shadow: 0px 1px 2px -2px rgba(0,0,0,0.75);\r\n\r\n//Fonts\r\n\r\n$small-font-size: 12px; \r\n$headers-font-size: 13px;\r\n$headers-font-weight: 600;\r\n\r\n//Sizes & other\r\n\r\n$inner-padding: 13px;\r\n$direction-rtl: rtl;\r\n$centred: 0 auto;\r\n\r\n\r\n@mixin flex-item($flex-direction, $justify, $align) {\r\n    display: flex;\r\n    flex-direction: $flex-direction;\r\n    justify-content: $justify;\r\n    align-items: $align;\r\n}\r\n\r\n@mixin publisher-pic($width,$height) {\r\n    width: $width;\r\n    height: $height;\r\n    border-radius: 50%;\r\n    border: $border;\r\n}\r\n\r\n@mixin button($padding, $bgcolor:#F6F7F9) {\r\n    border: 0;\r\n    padding: 0;\r\n    border: none;\r\n    font-size: 14px;\r\n    background-color: $bgcolor;\r\n    color:  #4E5665;\r\n    padding: $padding;\r\n    cursor: pointer;\r\n}\r\n\r\n@mixin headers() {\r\n    font-size: $headers-font-size;\r\n    font-weight: $headers-font-weight;\r\n    padding: 5px;\r\n}\r\n@mixin publisher-name() {\r\n    font-size: 15px;\r\n    font-weight: $headers-font-weight;\r\n\r\n}\r\n@mixin position($pos,$top,$right,$bottom,$left) {\r\n    position: $pos;\r\n    top: $top;\r\n    right: $right;\r\n    bottom: $bottom;\r\n    left: $left;\r\n}\r\n\r\n@mixin triangle($direction, $color, $big, $small) {\r\n    border: $small solid transparent;\r\n    border-#{$direction}: none;\r\n    width: 0;\r\n    height: 0;\r\n    \r\n    @if ($direction == top) {\r\n        border-bottom: $big solid $color;\r\n    }@else if ($direction == left) {\r\n        border-right: $big solid $color;\r\n    }@else if ($direction == bottom) {\r\n        border-top: $big solid $color;\r\n    }@else if ($direction == right) {\r\n        border-left: $big solid $color;\r\n    }\r\n  }\r\n",".header {\r\n    height: 42px;\r\n    width: 100%;\r\n    @include flex-item(initial,space-between,center);\r\n    position: fixed;\r\n    z-index: 1;\r\n    border-bottom: 1px solid #29487D;\r\n    background-color: #4267B2;\r\n    color: white;\r\n}\r\n.header-center {\r\n    width: 1020px;\r\n    margin: $centred;\r\n    @include flex-item(initial,space-between,center);\r\n}\r\n\r\n.search-bar > input {\r\n    width: 400px;\r\n    height: 22px;\r\n    padding: 8px;\r\n}\r\n\r\n.fa-facebook-square {\r\n    font-size: 25px;\r\n    margin-right: 7px;\r\n}\r\n\r\n.search-btn {\r\n    @include button(3px 15px);\r\n}\r\n\r\n.header-right>a {\r\n    font-weight: 700;\r\n    font-size: 12px;\r\n    padding: 4px 10px;\r\n    &:hover {\r\n        background-color: #3B5DA0;\r\n    }\r\n    &:nth-child(2) {\r\n        border-left: $border-header-blue;\r\n        border-right: $border-header-blue;\r\n    }  \r\n    \r\n}\r\n\r\n.header-icons {\r\n    color: #1A2946;\r\n    font-size: 18px;\r\n    cursor: pointer;\r\n}\r\n\r\n.header-icons li {\r\n    padding: 5px;\r\n    &:hover {\r\n        color: black;\r\n    }\r\n    &:nth-child(4)::before,\r\n    &:first-child::before {\r\n        content: \"|\";\r\n        color: #3B5CA0;\r\n        font-size: 24px;\r\n        margin-right: 8px;\r\n    }\r\n}\r\n\r\n.userpic {\r\n    margin-right: 8px;\r\n    @include publisher-pic(25px,25px);\r\n}",".navbar {\r\n    width: 150px;\r\n    grid-column: 1/2;\r\n    z-index: 1;\r\n    font-size: 12px;\r\n    margin-top: 10px;\r\n}\r\n\r\n.navbar-item {\r\n    grid-template-columns: 20% 80%;\r\n    display: grid;\r\n    align-items: center;\r\n    padding: 3px;\r\n    &:hover {\r\n        background-color: #F6F7F9;\r\n        border: 1px solid #DDDFE2;\r\n        margin: -1px;\r\n    }\r\n}\r\n\r\n.navbar-icon {\r\n    width: 23px;\r\n    height: 23px;\r\n    grid-column: 1/2;\r\n}\r\n\r\n.navbar-text {\r\n    grid-column: 2/3;\r\n    display: inline-block;\r\n    overflow: hidden;            /* To truncate string use theese 3 prop*/\r\n    text-overflow: ellipsis;     \r\n    white-space: nowrap;         \r\n}\r\n\r\n.navbar-links {\r\n    margin-top: 15px;\r\n}\r\n.create a {\r\n    &::after {\r\n        content: '\\00B7';\r\n        padding-left: 3px;\r\n    }\r\n    &:first-of-type {\r\n        margin-left: 5px;\r\n    }\r\n    \r\n}\r\n\r\n\r\n\r\n.see-more {\r\n    margin: 12px 4px;\r\n    padding: 3px;\r\n    font-size: 13px;\r\n    color: #365899;\r\n    & .fa-caret-down {\r\n        color: #90949C;\r\n    }\r\n    & a {\r\n        margin-left: 5px;\r\n    }\r\n}",".stories-header {\r\n    @include flex-item(initial, space-between, center);\r\n    padding: 10px 10px 0 10px;\r\n}\r\n.story-info {\r\n    padding: 10px;\r\n}\r\n.fa-plus {\r\n    width: 50px;\r\n    height: 50px;\r\n    padding: 18px;\r\n    border: $border;\r\n    border-radius: 50%;\r\n    background-color: #F5F6F7;\r\n    color: #187BFB;\r\n}\r\n.stories-info {\r\n    @include flex-item(initial, initial, center);\r\n    padding: 0px 12px 12px 12px;\r\n}\r\n\r\n.descr-text  {\r\n    font-size: 13px;\r\n    color: $descr-font-color-dark-grey;\r\n}\r\n\r\n.lang {\r\n    @include flex-item(initial, space-between, center);\r\n    font-size: 13px;\r\n    & .fa-plus {\r\n        color: inherit;\r\n        border-radius: 10px;\r\n        padding: 11px;\r\n        width: 35px;\r\n        height: 35px;\r\n    }\r\n    & span {\r\n        line-height: 1.4;\r\n        &::after {\r\n            content: '\\00B7';\r\n            padding: 2px;\r\n        }\r\n    }\r\n    \r\n}\r\n\r\n.lang span:last-of-type::after,\r\n.create a:last-of-type::after {\r\n    content: none;\r\n}",".suggested-body {\r\n    border: $border;\r\n    margin: 10px;\r\n}\r\n.suggested-header,\r\n.ads-header {\r\n    @include flex-item(initial, space-between, center);\r\n    padding: 8px 12px 0 12px;\r\n}\r\n.sug-page-rating  {\r\n    padding: 8px;\r\n    border-bottom: $border;\r\n    color: #4267B2;\r\n}\r\n.fa-star {\r\n    font-size: 10px;\r\n}\r\n.sug-page-info {\r\n    display: grid;\r\n    grid-template-columns: 20% 80%;\r\n    grid-gap: 5px;\r\n    padding: 8px;\r\n}\r\n\r\n.suggested  {\r\n    & .like {\r\n        @include flex-item(initial, center, initial);\r\n    }\r\n    img {\r\n        max-width: 100%;\r\n        border-top: $border;\r\n        border-bottom: $border;\r\n    }\r\n}\r\n.ads {\r\n    img {\r\n        max-width: 100%;\r\n        border-top: $border;\r\n        border-bottom: $border;\r\n    }\r\n    span {\r\n        display: inline-block;\r\n        margin-bottom: 10px;\r\n    }\r\n    h4 {\r\n        padding: 5px;\r\n    }\r\n    p {\r\n        font-size: 13px;\r\n    }\r\n}\r\n\r\n\r\n   \r\n\r\n",".template {\r\n    background-color: white;\r\n    margin-top: 12px;\r\n    border: $border;\r\n    border-radius: 5px;\r\n    color: #5F636A;\r\n}\r\n\r\n.user-input {\r\n    justify-content: space-between;\r\n\r\n}\r\n.user-input-links-top {\r\n    background-color: #F6F7F9;\r\n    border-bottom: $border;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    @include flex-item(initial, initial, center);\r\n\r\n    & a {\r\n        padding: 9px 10px;\r\n        &:first-of-type {\r\n            position: relative;\r\n        }\r\n    }\r\n    & .album {\r\n        border-left: $border;\r\n        border-right: $border\r\n    }\r\n    & .fas {\r\n        margin-right: 4px;\r\n    }\r\n}\r\n\r\n.album span,\r\n.video span {\r\n    color: #365899;\r\n}\r\n.triangle {\r\n    @include triangle(top,white,8px,8px);\r\n    @include position(absolute,unset,unset,-1px,56px);\r\n}\r\n.triangle-border {\r\n    @include triangle(top,$border-color-grey,9px,9px);\r\n    @include position(absolute,unset,unset,-1px,55px);\r\n}\r\n\r\n.user-input-text {\r\n    display: flex;\r\n    & textarea {\r\n        width: 100%;\r\n        padding-top: 25px;\r\n        height: inherit;\r\n        resize: none;\r\n    }\r\n    & img {\r\n        margin: 10px;\r\n        @include publisher-pic(45px,45px); \r\n    }\r\n    \r\n}\r\n\r\n.user-input-links-bottom {\r\n    border-top: $border;\r\n    padding: 3px;\r\n    margin: auto 10px;\r\n    & .btn {\r\n        @include button(8px 16px);\r\n        padding: 8px 16px;\r\n        margin: 5px;\r\n        border-radius: 14px;\r\n        &:hover {\r\n            background-color: $body-hover-color-grey;\r\n        }\r\n    }\r\n    & .fa-image {\r\n        color: #94CD54;\r\n    }\r\n    & .fa-smile {\r\n        color: #F7C43A;\r\n    }\r\n    & .fa-ellipsis-h {\r\n        color: #A6ABB4; \r\n    }\r\n}\r\n\r\n.extend-user-input {\r\n    background-color: $body-hover-color-grey;\r\n    padding: 10px;\r\n    border-bottom-left-radius: 5px;\r\n    border-bottom-right-radius: 5px;\r\n    border-top: $border;\r\n    display: none;\r\n    & button {\r\n        width: 100%;\r\n        color: white;\r\n        background-color: #9CB4D8;\r\n        font-weight: bold;\r\n        padding: 8px;\r\n        &:hover {\r\n            background-color: #4267B2;\r\n        }\r\n    }\r\n}","// Basic Post Settings\r\n.btn {\r\n    @include button(5px 13px);\r\n    &.save-btn {\r\n        border: $border;\r\n    }\r\n    &.white-btn {\r\n        margin: $centred;\r\n        @include button(12px, white);\r\n        &:hover {\r\n            background-color: $body-hover-color-grey;\r\n        }\r\n    }\r\n}\r\n.post-header {\r\n    @include flex-item(initial, space-between, initial);\r\n}\r\n\r\n.publisher-name {\r\n    @include publisher-name();\r\n}\r\n.publisher img {\r\n    @include publisher-pic(45px,45px);\r\n    border: $border;\r\n}\r\n.publisher-info {\r\n    @include flex-item(column, initial, initial);\r\n    padding: 6px 10px;\r\n}\r\n.post-type-icon::before {\r\n    content: '\\00B7';\r\n    padding: 8px 5px 0 4px;\r\n}\r\n.post-date {\r\n    display: inline-block;\r\n    font-size: 12px;\r\n    padding: 3px 0;\r\n}\r\n.post-header {\r\n    position: relative;\r\n}\r\n.post-options-menu {\r\n    display: none;\r\n    flex-direction: column;\r\n    @include position(absolute,15px,0,unset,unset);\r\n    background-color: white;\r\n    border: $border;\r\n    box-shadow: $box-shadow;\r\n}\r\n.edit-post, .remove-post, .remove-comment {\r\n    padding: 5px;\r\n    color: black;\r\n    cursor: pointer;\r\n    &:hover {\r\n        color: white;\r\n        background-color: $links-color-blue;\r\n    }\r\n}\r\n.post {\r\n    padding: {\r\n        top:10px;\r\n        left: 10px;\r\n        right: 10px;\r\n    } \r\n    & img, video {\r\n        max-width:100%;\r\n        max-height:100%;\r\n    }\r\n    & .post-text {\r\n        outline: none;\r\n    }\r\n}\r\n.post-user-action {\r\n    @include flex-item(initial, space-around, center);\r\n    position: relative;\r\n    border: {\r\n        top: $border;\r\n    }\r\n}\r\n.light-padded {\r\n    padding: 7px;\r\n}\r\n.post-likes {\r\n    display: none;\r\n    padding: 8px;\r\n    background-color: #F2F3F5;\r\n    border: \r\n    {\r\n        left: $border;\r\n        right: $border;\r\n        bottom: $border;\r\n    }\r\n    & img {\r\n        width: 22px;\r\n        height: 22px;\r\n    }\r\n}\r\n\r\n.post-comments {\r\n    padding: 8px;\r\n    background-color: #F2F3F5;\r\n    border: \r\n    {\r\n        left: $border;\r\n        right: $border;\r\n        bottom: $border;\r\n    }\r\n    & .comment {\r\n        margin-bottom: 10px;\r\n        max-width: 95%;\r\n        & .comment-reactions {\r\n            bottom: -15px;\r\n            position: absolute;\r\n            font-size: $small-font-size;\r\n            & .like::after {\r\n                content: '\\00B7';\r\n                padding-left: 4px;\r\n            }\r\n        }\r\n        & .comment-options {\r\n            position: absolute;\r\n            top: 40%;\r\n            left: 100%;\r\n            cursor: pointer;\r\n            color: #C1C2C4;\r\n            outline: none;\r\n            margin-left: 5px;\r\n        }\r\n        & .comment-options-menu {\r\n            display: none;\r\n            background-color: white;\r\n            border: $border;\r\n            box-shadow: $box-shadow;\r\n            & .remove-comment {\r\n                display: inline-block;\r\n            }\r\n        } \r\n\r\n        \r\n        & .comment-likes {\r\n            position: absolute;\r\n            top: 40px;\r\n            right: -7px;\r\n            background: white;\r\n            border-radius: 15px;\r\n            box-shadow: 0px 1px 10px 2px lightgrey;\r\n            display: none;\r\n            & .likes {\r\n                display: flex;\r\n                align-items: center;\r\n                padding: 2px;\r\n                & span, img {\r\n                    padding: 2px;\r\n                } \r\n            }\r\n        }\r\n        & img {\r\n            width: 22px;\r\n            height: 22px;\r\n            border: none;\r\n        }\r\n    }\r\n    & img {\r\n        @include  publisher-pic(30px, 30px);\r\n    }\r\n    & .personal-comment {\r\n        @include flex-item(initial,initial,center);\r\n    }\r\n    & .personal-comment-input-and-icons {\r\n        @include flex-item(initial,initial,center);\r\n        width: 100%;\r\n        background-color: white;\r\n        padding: 0 15px;\r\n        border: $border;\r\n        border-radius: 20px;\r\n        & input {\r\n            width: 100%;\r\n            height: 30px;\r\n        }\r\n        & [class*='fa-'] {\r\n            padding: 3px;\r\n        }\r\n    }\r\n    & .user-info, .user-comment  {\r\n        display: inline-block;\r\n    }\r\n    & .user-comment {\r\n        background-color: white;\r\n        padding: 10px;\r\n        border-radius: 15px;\r\n        position: relative;\r\n        margin-bottom: 20px;\r\n\r\n    }\r\n    & .post-comments-area {\r\n        display: flex;\r\n        flex-direction: column;\r\n    }\r\n}\r\n\r\n// Dummy posts\r\n\r\n.post-comments-body,\r\n.public-post-follow,\r\n.public-post-reactions {\r\n    @include flex-item(initial, space-between, initial);\r\n    padding: 15px;\r\n}\r\n\r\n.follow-btn {\r\n    border: $border;\r\n    span {\r\n        font-weight: $headers-font-weight;\r\n        font-size: $headers-font-size;\r\n    }\r\n}\r\n\r\n.post-preview {\r\n    border: $border;\r\n    width: 95%;\r\n    margin: auto;\r\n    box-shadow: $box-shadow;\r\n}\r\n\r\n.post-source { \r\n    direction: initial;\r\n    display: inherit;\r\n}\r\n.post-likes .fa-thumbs-up {\r\n    color: #4679EB;\r\n}\r\n\r\n.download-btn {\r\n    @include position(absolute,9px,unset,unset,0);\r\n    @include button(0, white);\r\n    img {\r\n        height: 22px; width: 22px;\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n\r\n//-------------------"],"sourceRoot":""}]);
 
 // exports
 
