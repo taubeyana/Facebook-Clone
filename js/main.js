@@ -1,8 +1,6 @@
-const $ = require('jquery');
-let Feed = require('../js/feed');
-require('../scss/styles.scss');
-
-
+import $ from 'jquery';
+import {Feed} from '../js/feed';
+import '../scss/styles.scss';
 
 const {log} = console;
 

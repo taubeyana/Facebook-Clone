@@ -1,7 +1,7 @@
-let Options = require('../js/options');
-const $ = require('jquery');
+import {Options} from '../js/options';
+import $ from 'jquery';
 
-class PostOptions extends Options {
+export class PostOptions extends Options {
     constructor(parent) {
         super(parent);
         this.div
@@ -23,5 +23,3 @@ class PostOptions extends Options {
         this.optionsMenu.hide();
     }
 }
-
-module.exports = PostOptions;

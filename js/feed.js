@@ -1,15 +1,15 @@
-let Post = require('../js/post');
-let service = require('../js/services');
-let $ = require('jquery')
+import $ from 'jquery';
+import {Post} from '../js/post';
+import {UsersService, PostsService,CommentsService} from '../js/services';
 
-class Feed {
+export class Feed {
     constructor(mainEl,userid) {
         this.mainEl = mainEl;
         this.fetchUser(userid);
     }
     
     fetchUser(userid) {
-        service.usersService.getUser(userid)
+        UsersService.getUser(userid)
         .then(user => {
             this.onUser(user)
         });
@@ -31,7 +31,7 @@ class Feed {
     }
     
     fetchPosts(user) {
-        service.PostsService.getUserPosts(user.id)
+        PostsService.getUserPosts(user.id)
         .then(posts => {
             posts.forEach(element => {
                 let post = new Post(this.user,element.body);
@@ -40,12 +40,12 @@ class Feed {
         });
     }
     fetchPostComments(postID) {
-        service.CommentsService.getComments(postID)
+        CommentsService.getComments(postID)
         .then(comments => log(comments));
     } 
     
     fetchServerPosts() {
-        service.PostsService.getServerPosts()
+        PostsService.getServerPosts()
         .then(posts => {
             posts.forEach(element => {
                 let post = new Post(this.user, element.message);
@@ -61,4 +61,4 @@ class Feed {
     }
 }
 
-module.exports = Feed;
+// module.exports = Feed;

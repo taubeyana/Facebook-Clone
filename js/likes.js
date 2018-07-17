@@ -1,5 +1,6 @@
-const $ = require('jquery');
-class Likes {
+import $ from 'jquery';
+
+export class Likes {
     constructor(parent) {
         this.parent = parent;
         this.likeBtn = $('.like',this.parent).click(() => this.displayLikes());
@@ -18,4 +19,3 @@ class Likes {
         .text(this.likes);
     }
 }
-module.exports = Likes;

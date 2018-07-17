@@ -1,13 +1,12 @@
-const $ = require('jquery');
-let Likes = require('../js/likes');
+import {Likes} from '../js/likes';
 
-class CommentLikes extends Likes {
+export class CommentLikes extends Likes {
     constructor(parent) {
         super(parent);
         this.div.attr('class', 'comment-likes likes');
         this.div.html(`
         <div class="likes">
-        <img src="img/like.png" alt="">     
+        <img src="../img/like.png" alt="">     
         <span class="likes-num"></span>
         </div>`)
         .appendTo(this.parent);
@@ -17,4 +16,3 @@ class CommentLikes extends Likes {
         this.reactionsCounter();
     }
 }
-module.exports = CommentLikes;

@@ -1,7 +1,6 @@
-const $ = require('jquery');
-let Options = require('../js/options');
+import {Options} from '../js/options';
 
-class CommentsOptions extends Options {
+export class CommentsOptions extends Options {
     constructor(parent) {
         super(parent);
         this.div
@@ -15,4 +14,3 @@ class CommentsOptions extends Options {
         this.render();
     }
 }
-module.exports = CommentsOptions;

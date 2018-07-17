@@ -1,24 +1,24 @@
-let User = require('../js/user');
+import {User} from '../js/user';
 
 // Helpers for short selections and debug
 const {log} = console;
 
 
-module.exports = {
+
 
     // Fetching users by id from jsonplaceholder server
     
-    usersService: class UsersService {
+    export  class UsersService {
         static getUser(id) {
             return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
             .then(res => res.json())
             .then(user => new User(user));
         }
-    },
+    }
     
     // Fetching posts from server
     
-    PostsService: class PostsService {
+    export class PostsService {
         static getUserPosts(user) {
             return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user}`)
             .then(res => res.json())
@@ -37,9 +37,9 @@ module.exports = {
                 return JSON.parse(localStorage.getItem('posts')).posts;
             });
         }
-    },
+    }
     
-    commentsService: class CommentsService {
+    export class CommentsService {
         static getComments(postId) {
             return fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
             .then(data => data.json())
@@ -47,4 +47,3 @@ module.exports = {
         }
     }
     
-}

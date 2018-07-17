@@ -1,8 +1,8 @@
-const $ = require('jquery');
-let CommentsOptions = require('../js/commentsOptions');
-let CommentLikes = require('../js/commentLikes');
+import $ from 'jquery';
+import {CommentsOptions} from '../js/commentsOptions';
+import {CommentLikes} from '../js/commentLikes';
 
-class PostComments {
+export class PostComments {
     constructor(parent,user) {
         this.parent = parent;
         this.user = user;
@@ -12,7 +12,7 @@ class PostComments {
         <div class="post-comments-area">
         </div>  
         <div class="personal-comment">
-        <img src="img/userpic.jpg" alt="userpic">
+        <img src="../img/userpic.jpg" alt="userpic">
         <div class="personal-comment-input-and-icons">
         <input type="text" placeholder="Write a Comment..." class="user-comment-input">
         <i class="far fa-smile"></i>
@@ -32,7 +32,7 @@ class PostComments {
             .attr('class', 'comment')
             .html(`
             <div class="user-info">
-            <img src="img/userpic.jpg" alt="userpic">
+            <img src="../img/userpic.jpg" alt="userpic">
             </div>
             <div class="user-comment">
             <span class="color-blue">${this.user.fullName}</span>
@@ -51,4 +51,3 @@ class PostComments {
         }
     }
 }
-module.exports = PostComments;

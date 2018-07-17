@@ -1,6 +1,6 @@
-const $ = require('jquery');
+import $ from 'jquery';
 
-class Options {
+export class Options {
     constructor(parent) {
         this.parent = parent;
         this.div = $('<div></div>')
@@ -21,4 +21,3 @@ class Options {
         }
     }
 }
-module.exports = Options;

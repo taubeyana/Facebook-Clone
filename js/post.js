@@ -1,9 +1,9 @@
-const $ = require('jquery');
-let PostOptions = require('../js/postOptions');
-let PostLikes = require('../js/postLikes');
-let PostComments = require('../js/postComments');
+import $ from 'jquery';
+import {PostOptions} from '../js/postOptions';
+import {PostLikes} from '../js/postLikes';
+import {PostComments}  from '../js/postComments';
 
-class Post {
+export class Post {
     constructor(user, userInput, lang = '') {
         this.user = user;
         this.userInput = userInput;
@@ -14,7 +14,7 @@ class Post {
         <div class="post template">
         <div class="post-header">
         <figure class="publisher flex-item">
-        <img src="img/puppy.jpg">  
+        <img src="../img/puppy.jpg">  
         <figcaption class="publisher-info"> 
         <span class="publisher-name color-blue">${this.user.fullName}</span>
         <div class="post-info">
@@ -47,4 +47,3 @@ class Post {
         this.postComments = new PostComments(this.div,this.user);
     }
 }
-module.exports = Post;
