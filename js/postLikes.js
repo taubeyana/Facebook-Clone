@@ -1,4 +1,5 @@
 let Likes = require('../js/likes');
+const $ = require('jquery');
 
 class PostLikes extends Likes {
     constructor(parent) {

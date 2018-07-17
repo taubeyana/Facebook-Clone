@@ -1,5 +1,8 @@
-require('jquery');
+const $ = require('jquery');
 let Feed = require('../js/feed');
+require('../scss/styles.scss');
+
+
 
 const {log} = console;
 

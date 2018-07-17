@@ -1,3 +1,4 @@
+const $ = require('jquery');
 let CommentsOptions = require('../js/commentsOptions');
 let CommentLikes = require('../js/commentLikes');
 

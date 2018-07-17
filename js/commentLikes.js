@@ -1,3 +1,4 @@
+const $ = require('jquery');
 let Likes = require('../js/likes');
 
 class CommentLikes extends Likes {

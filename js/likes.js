@@ -1,3 +1,4 @@
+const $ = require('jquery');
 class Likes {
     constructor(parent) {
         this.parent = parent;

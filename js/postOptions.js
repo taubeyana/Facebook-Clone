@@ -1,4 +1,5 @@
 let Options = require('../js/options');
+const $ = require('jquery');
 
 class PostOptions extends Options {
     constructor(parent) {

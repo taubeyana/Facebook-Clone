@@ -1,3 +1,5 @@
+const $ = require('jquery');
+
 class Options {
     constructor(parent) {
         this.parent = parent;

@@ -1,3 +1,4 @@
+const $ = require('jquery');
 let PostOptions = require('../js/postOptions');
 let PostLikes = require('../js/postLikes');
 let PostComments = require('../js/postComments');

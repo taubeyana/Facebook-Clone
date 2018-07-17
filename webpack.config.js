@@ -1,9 +1,12 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: './js/main.js',
     output: {
-        filename: 'app1.js'
+        filename: 'app.js'
     },
     devtool: 'source-map',
+    mode: 'development',
     module: {
         rules: [{
             test: /\.scss$/,
@@ -19,5 +22,11 @@ module.exports = {
                 }
             }]
         }]
-    }
+    },
+    
+    plugins: [
+		new HtmlWebpackPlugin({
+            template: 'index.html'
+        }),
+	]
 }

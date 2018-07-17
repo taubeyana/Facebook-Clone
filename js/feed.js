@@ -1,5 +1,6 @@
 let Post = require('../js/post');
 let service = require('../js/services');
+let $ = require('jquery')
 
 class Feed {
     constructor(mainEl,userid) {

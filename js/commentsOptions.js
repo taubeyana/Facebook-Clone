@@ -1,3 +1,4 @@
+const $ = require('jquery');
 let Options = require('../js/options');
 
 class CommentsOptions extends Options {
