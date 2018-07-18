@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import {Feed} from '../js/feed';
 import '../scss/styles.scss';
+import '../css/normalize.css';
+
 
 const {log} = console;
 

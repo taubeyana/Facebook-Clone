@@ -1,5 +1,5 @@
-import {Options} from '../js/options';
 import $ from 'jquery';
+import {Options} from '../js/options';
 
 export class PostOptions extends Options {
     constructor(parent) {
