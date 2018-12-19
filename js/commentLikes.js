@@ -6,7 +6,7 @@ export class CommentLikes extends Likes {
         this.div.attr('class', 'comment-likes likes');
         this.div.html(`
         <div class="likes">
-        <img src="../img/like.png" alt="">     
+        <img src="./img/like.png" alt="">     
         <span class="likes-num"></span>
         </div>`)
         .appendTo(this.parent);

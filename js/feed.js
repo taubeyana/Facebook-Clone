@@ -60,5 +60,3 @@ export class Feed {
         this.postsArea.prepend(post.div);
     }
 }
-
-// module.exports = Feed;

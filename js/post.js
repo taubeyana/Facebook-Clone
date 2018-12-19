@@ -14,7 +14,7 @@ export class Post {
         <div class="post template">
         <div class="post-header">
         <figure class="publisher flex-item">
-        <img src="../img/puppy.jpg">  
+        <img src="./img/puppy.jpg">  
         <figcaption class="publisher-info"> 
         <span class="publisher-name color-blue">${this.user.fullName}</span>
         <div class="post-info">

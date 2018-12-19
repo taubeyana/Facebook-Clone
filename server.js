@@ -17,7 +17,7 @@ let app = http.createServer((req, res) => {
           name: 'Yana Taube',
           id: 3
         },
-        message: "מחפשים מלון מומלץ ביוון הכל כלול המתאים לגילאי 2,5,8 שוט ",
+        message: "Lorem ipsum dolor sit amet, ne mundi aperiam delicata usu, oratio accusata cu ius. Semper fierent no vix. Odio expetenda cu per, te usu omnes decore admodum.  ",
         lang: 'heb',
         likes: 5
       },
@@ -28,7 +28,7 @@ let app = http.createServer((req, res) => {
           image: 'img/slava.jpg',
           name: 'Slava Rozman'
         },
-        message: "I ate apple tommorow",
+        message: "Lorem ipsum dolor sit amet, ne mundi aperiam delicata usu, oratio accusata cu ius. Semper fierent no vix. Odio expetenda cu per, te usu omnes decore admodum. ",
         lang: '',
         likes: 10
       }
