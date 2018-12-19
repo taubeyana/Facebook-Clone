@@ -135,7 +135,7 @@ class CommentLikes extends _js_likes__WEBPACK_IMPORTED_MODULE_0__["Likes"] {
         this.div.attr('class', 'comment-likes likes');
         this.div.html(`
         <div class="likes">
-        <img src="../img/like.png" alt="">     
+        <img src="./img/like.png" alt="">     
         <span class="likes-num"></span>
         </div>`)
         .appendTo(this.parent);
@@ -406,7 +406,7 @@ class Post {
         <div class="post template">
         <div class="post-header">
         <figure class="publisher flex-item">
-        <img src="../img/puppy.jpg">  
+        <img src="./img/puppy.jpg">  
         <figcaption class="publisher-info"> 
         <span class="publisher-name color-blue">${this.user.fullName}</span>
         <div class="post-info">
@@ -470,7 +470,7 @@ class PostComments {
         <div class="post-comments-area">
         </div>  
         <div class="personal-comment">
-        <img src="../img/userpic.jpg" alt="userpic">
+        <img src="./img/userpic.jpg" alt="userpic">
         <div class="personal-comment-input-and-icons">
         <input type="text" placeholder="Write a Comment..." class="user-comment-input">
         <i class="far fa-smile"></i>
@@ -490,7 +490,7 @@ class PostComments {
             .attr('class', 'comment')
             .html(`
             <div class="user-info">
-            <img src="../img/userpic.jpg" alt="userpic">
+            <img src="./img/userpic.jpg" alt="userpic">
             </div>
             <div class="user-comment">
             <span class="color-blue">${this.user.fullName}</span>
@@ -530,7 +530,7 @@ class PostLikes extends _js_likes__WEBPACK_IMPORTED_MODULE_0__["Likes"] {
         super(parent);
         this.div.html(`
         <div class="post-likes likes">
-        <img src="../img/like.png" alt="">
+        <img src="./img/like.png" alt="">
         <span class="likes-num"></span>
         </div>`)
         .appendTo(this.parent);
